@@ -2,5 +2,7 @@ mysql
 nginx/laravel.conf
 node/vite
 node/e-sip
+node/prisma-react
+node/build-prisma-react
 node/express/node_modules
 src/laravel
