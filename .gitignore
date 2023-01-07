@@ -1,0 +1,6 @@
+mysql
+nginx/laravel.conf
+node/vite
+node/e-sip
+node/express/node_modules
+src/laravel

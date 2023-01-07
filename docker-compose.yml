@@ -1,0 +1,63 @@
+version: '3.9'
+
+services:
+  php:
+    image: php:8.1-fpm
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: php
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - 9000:9000
+    networks:
+      - shared_network
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - shared_network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 8090:80
+    depends_on:
+      - mysql
+    networks:
+      - shared_network
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx:/etc/nginx/conf.d
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    driver: bridge
+    name: shared_network

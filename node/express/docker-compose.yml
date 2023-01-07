@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  node:
+    stdin_open: true
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-express
+    ports:
+      - 3000:3000
+    restart: always
