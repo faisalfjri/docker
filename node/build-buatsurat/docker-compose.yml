@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  node-buatsurat:
+    stdin_open: true
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-buatsurat
+    ports:
+      - 3001:3001
+    restart: always
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    driver: bridge
+    name: shared_network
