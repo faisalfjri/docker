@@ -1,12 +1,3 @@
 mysql
-nginx/laravel.conf
-node/vite
-node/e-sip
-node/prisma-react
-node/build-prisma-react
-node/buatsurat
-node/build-buatsurat
-node/express/node_modules
-src/laravel
 
 login.pem

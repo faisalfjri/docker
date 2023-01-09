@@ -1,0 +1,10 @@
+sudo chmod o+w ./storage/ -R
+
+docker compose exec php php /var/www/html/artisan migrate
+docker exec php sh
+
+sudo service apache2 stop
+
+sudo service mysql stop
+
+docker exec -it nginx nginx -s reload

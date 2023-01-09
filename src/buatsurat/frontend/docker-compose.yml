@@ -1,12 +1,12 @@
 version: '3.9'
 
 services:
-  node-buatsurat:
+  buatsurat-frontend:
     stdin_open: true
     build: 
       context: .
       dockerfile: Dockerfile
-    container_name: node-buatsurat
+    container_name: buatsurat-frontend
     ports:
       - 3001:3001
     restart: always
