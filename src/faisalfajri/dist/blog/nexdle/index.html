@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.ico">
+<meta name="generator" content="Astro v1.9.1">
+
+<!-- Primary Meta Tags -->
+<title>I Made a Wordle Clone</title>
+<meta name="title" content="I Made a Wordle Clone">
+<meta name="description" content="Nexdle is a wordle clone made with React, TypeScript, TailwindCSS, Vite, Zustand and tested with Vitest.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shoubhit Dash">
+<meta property="og:url" content="https://faisalfajri.my.id/blog/nexdle/">
+<meta property="og:title" content="I Made a Wordle Clone">
+<meta property="og:description" content="Nexdle is a wordle clone made with React, TypeScript, TailwindCSS, Vite, Zustand and tested with Vitest.">
+<meta property="og:image" content="https://og.nxl.sh/api/og/?title=I Made a Wordle Clone&#38;top=March 21, 2022 • 2 min read ">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://faisalfajri.my.id/blog/nexdle/">
+<meta property="twitter:title" content="I Made a Wordle Clone">
+<meta property="twitter:description" content="Nexdle is a wordle clone made with React, TypeScript, TailwindCSS, Vite, Zustand and tested with Vitest.">
+<meta property="twitter:image" content="https://og.nxl.sh/api/og/?title=I Made a Wordle Clone&#38;top=March 21, 2022 • 2 min read ">
+
+<!-- Link Tags -->
+<link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Client Side Routing -->
+
+
+  <link rel="stylesheet" href="/assets/blog.c0a6cc77.css" />
+<link rel="stylesheet" href="/assets/ct3a-guestbook.355186fa.css" /><script type="module" src="/hoisted.07a57509.js"></script>
+<script type="module" src="/page.5a6f3db5.js"></script></head>
+
+  <body>
+    <header class="astro-S6FU4HZ2">
+  <!-- <h2 class="text-xl pb-1 flex items-center gap-3">
+    <img
+      src="/images/faisal.webp"
+      alt="faisal's avatar"
+      width={50}
+      height={50}
+      class="rounded-full border-none m-0 font-bold"
+    />
+    Shoubhit Dash
+  </h2> -->
+  <nav class="flex gap-3 astro-S6FU4HZ2">
+    <a href="/" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" class="astro-S6FU4HZ2">
+  Home
+</a>
+    <!-- <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/faq">FAQ</HeaderLink> -->
+    <a href="https://github.com/faisalfjri" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" target="_blank" class="astro-S6FU4HZ2">
+  
+      GitHub
+    
+</a>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z2u8foL" component-url="/EmailSelect.0ec7e108.js" component-export="EmailSelect" renderer-url="/client.077f9624.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;EmailSelect&quot;,&quot;value&quot;:true}" await-children=""><div class="relative inline-block text-left" data-headlessui-state=""><div><button class="text-vitesseGreen hover:underline font-medium underline-offset-3px" id="headlessui-menu-button-:R1:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">Email</button></div></div></astro-island>
+  </nav>
+</header>
+
+    <main>
+      <article>
+        <h1>I Made a Wordle Clone</h1>
+
+        <div class="pt-4 text-neutral-200">
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path>
+            </svg>
+
+            <time class="text-base">March 21, 2022</time>
+          </div>
+
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+
+            <span class="text-base">2 min read</span>
+          </div>
+        </div>
+        <hr class="border-t border-t-neutral-700 my-8">
+        <p>Yes that’s right, another wordle clone. You can play it <a href="https://nexdle.nexxel.dev/">here</a>.</p>
+<br/>
+<p><a href="https://nexdle.nexxel.dev/">nexdle</a> is a <a href="https://www.nytimes.com/games/wordle/index.html">wordle</a> clone made with <a href="https://reactjs.org/">React</a>, <a href="https://www.typescriptlang.org/">TypeScript</a>, <a href="https://tailwindcss.com/">TailwindCSS</a>, <a href="https://vitejs.dev/">Vite</a>, <a href="https://github.com/pmndrs/zustand">Zustand</a> and tested with <a href="https://vitest.dev/">Vitest</a>.</p>
+<br/>
+<p>This project was a great learning experience for me. Things I learnt while making nexdle:</p>
+<br/>
+<ul>
+<li>CSS Grids</li>
+<li>Using state management libraries (<a href="https://github.com/pmndrs/zustand">Zustand</a> in this case)</li>
+<li>Using testing tools like Jest (<a href="https://vitest.dev/">Vitest</a> in this case)</li>
+</ul>
+<br/>
+<p>Before this I had made a simple <a href="https://github.com/nexxeln/todo-app">todo-app</a> to get comfortable with using TypeScript in React projects. Now after using it for 2 projects, I’m absolutely in love with it. TypeScript is just so good for catching errors before shipping the app to production, and the autocomplete you get is just crazy. It takes the developer experience to a whole another level.</p>
+<p><br/>I used TailwindCSS for all the styling because lets face it, CSS is really
+fricking hard. Tailwind just makes it really simple and quick to make a stunning
+ui. Just add pre-built CSS utility classes and you’re good to go!</p>
+<p><br/>I didn’t use <code>create-react-app</code> for this project. Instead I used Vite.
+Vite is a module bundler, just like webpack. Since I’ve come across Vite, I
+haven’t gone back to <code>create-react-app</code>. It’s just faster, has less dependencies
+so the build size is less. If you haven’t tried it yet, I highly recommend you
+do!</p>
+<br/>
+<p>I finally learnt how to use state management libraries. In this project I used Zustand,
+which is like a bare bones version of <a href="https://redux.js.org/">Redux</a>. It’s better
+than using the Context API as its less boilerplatey. I figured for a small project
+I don’t really need to use a heavy library like Redux.</p>
+<br/>
+<p>A few weeks ago I learnt how to use <a href="https://jestjs.io/">Jest</a> and I was really excited to try it out here. But I found out that it wasn’t compatible with Vite. So I found this really awesome library called Vitest. Honestly, testing was the most fun part of the whole project. It helps you catch bugs before production and is just really fun to do.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/Code_7Bk8VB3xBb.png" alt="testing"/></p>
+<p>Vitest also has this crazy ui testing option, I haven’t explored it a lot but it’s just insane. Check this out:</p>
+<p><img src="https://github.com/nexxeln/nexdle/blob/main/images/Code_Vyzc5YbawL.gif?raw=true" alt="insane"/>
+I also uploaded this gif to <a href="https://youtu.be/2GLYNV5cQ-Y">YouTube</a> since it’s kind
+of long. You can watch it there if you prefer that.</p>
+<p>So that’s it for this blog. All the code for nexdle can be found <a href="https://github.com/nexxeln/nexdle/">here</a>.</p>
+<br/>
+<p>If you made it this far thanks for reading!</p>
+      </article>
+    </main>
+    <hr class="border-t-2 border-t-neutral-800 mt-24">
+
+<footer class="p-4 text-neutral-400 text-center">
+  <p class="text-neutral-400">
+    This website doesn't track you. Have a nice day.
+  </p>
+  <div class="flex gap-6 items-center justify-center text-sm pt-2">
+    <a href="/rss.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+      </svg>
+      <span>RSS</span>
+    </a>
+    <a href="/sitemap-index.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
+      </svg>
+      <span>Sitemap</span>
+    </a>
+  </div>
+</footer>
+  </body></html>

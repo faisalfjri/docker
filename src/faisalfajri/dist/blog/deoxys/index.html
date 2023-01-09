@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.ico">
+<meta name="generator" content="Astro v1.9.1">
+
+<!-- Primary Meta Tags -->
+<title>How I Made a Really Fast Link Shortener That Runs on the Edge</title>
+<meta name="title" content="How I Made a Really Fast Link Shortener That Runs on the Edge">
+<meta name="description" content="In this blog, I show you how deoxys, my link shortener works.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shoubhit Dash">
+<meta property="og:url" content="https://faisalfajri.my.id/blog/deoxys/">
+<meta property="og:title" content="How I Made a Really Fast Link Shortener That Runs on the Edge">
+<meta property="og:description" content="In this blog, I show you how deoxys, my link shortener works.">
+<meta property="og:image" content="https://og.nxl.sh/api/og/?title=How I Made a Really Fast Link Shortener That Runs on the Edge&#38;top=June 1, 2022 • 6 min read ">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://faisalfajri.my.id/blog/deoxys/">
+<meta property="twitter:title" content="How I Made a Really Fast Link Shortener That Runs on the Edge">
+<meta property="twitter:description" content="In this blog, I show you how deoxys, my link shortener works.">
+<meta property="twitter:image" content="https://og.nxl.sh/api/og/?title=How I Made a Really Fast Link Shortener That Runs on the Edge&#38;top=June 1, 2022 • 6 min read ">
+
+<!-- Link Tags -->
+<link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Client Side Routing -->
+
+
+  <link rel="stylesheet" href="/assets/blog.c0a6cc77.css" />
+<link rel="stylesheet" href="/assets/ct3a-guestbook.355186fa.css" /><script type="module" src="/hoisted.07a57509.js"></script>
+<script type="module" src="/page.5a6f3db5.js"></script></head>
+
+  <body>
+    <header class="astro-S6FU4HZ2">
+  <!-- <h2 class="text-xl pb-1 flex items-center gap-3">
+    <img
+      src="/images/faisal.webp"
+      alt="faisal's avatar"
+      width={50}
+      height={50}
+      class="rounded-full border-none m-0 font-bold"
+    />
+    Shoubhit Dash
+  </h2> -->
+  <nav class="flex gap-3 astro-S6FU4HZ2">
+    <a href="/" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" class="astro-S6FU4HZ2">
+  Home
+</a>
+    <!-- <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/faq">FAQ</HeaderLink> -->
+    <a href="https://github.com/faisalfjri" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" target="_blank" class="astro-S6FU4HZ2">
+  
+      GitHub
+    
+</a>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z2u8foL" component-url="/EmailSelect.0ec7e108.js" component-export="EmailSelect" renderer-url="/client.077f9624.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;EmailSelect&quot;,&quot;value&quot;:true}" await-children=""><div class="relative inline-block text-left" data-headlessui-state=""><div><button class="text-vitesseGreen hover:underline font-medium underline-offset-3px" id="headlessui-menu-button-:R1:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">Email</button></div></div></astro-island>
+  </nav>
+</header>
+
+    <main>
+      <article>
+        <h1>How I Made a Really Fast Link Shortener That Runs on the Edge</h1>
+
+        <div class="pt-4 text-neutral-200">
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path>
+            </svg>
+
+            <time class="text-base">June 1, 2022</time>
+          </div>
+
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+
+            <span class="text-base">6 min read</span>
+          </div>
+        </div>
+        <hr class="border-t border-t-neutral-700 my-8">
+        <blockquote>
+<p>Update: Deoxys was deprecated, therefore the links do not work.</p>
+</blockquote>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_7QyixVB0nP.gif" alt="demo"/></p>
+<p>I recently made a link shortener called <a href="https://deoxys.nexxel.dev">deoxys</a> (named after a really fast Pokémon). It’s really, really fast because it uses <a href="https://vercel.com/features/edge-functions">Vercel Edge Functions</a>. Edge functions are basically functions that run on the cloud, so they are really fast and have no cold starts, and everything runs on the server so there is zero client side burden. In this blog I’m going to give you an overview of the architecture of deoxys.</p>
+<br/>
+<h2 id="stack">Stack</h2>
+<br/>
+<ul>
+<li><a href="https://nextjs.org">Next.js</a></li>
+<li><a href="https://prisma.io">Prisma</a></li>
+<li><a href="https://planetscale.com">PlanetScale</a></li>
+<li><a href="https://trpc.io">tRPC</a></li>
+<li><a href="https://typescriptlang.org">TypeScript</a> (of course)</li>
+<li><a href="https://tailwindcss.com">TailwindCSS</a></li>
+<li><a href="https://vercel.com">Vercel</a></li>
+</ul>
+<br/>
+<h2 id="high-level-overview">High level overview</h2>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_pySo8pWQHC.png" alt="high level overview"/></p>
+<p>The frontend is built with Next.js which is a full stack <a href="https://reactjs.org">React</a> framework. I’m using tRPC as my API layer for that sweet type-safety. I wrote a <a href="/trpc">blog about tRPC</a> if you’re not familiar with it. The database is a MySQL database (<a href="https://vitess.io/">Vitess</a> to be precise) provided by PlanetScale.</p>
+<br/>
+<p>Whenever someone shortens a new link, the frontend calls a tRPC mutation to store that in the database. The ORM I’m using is Prisma, because it is simply the best.</p>
+<br/>
+<p>Now here comes the interesting part, whenever someone visits a shortened URL, lets say <code>https://deoxys.nexxel.dev/cat</code>, it will run an edge function to check if the provided slug (in this case ‘cat’), is a valid slug, if it is, it will redirect the user to whatever the URL was.</p>
+<br/>
+<h2 id="code-walkthrough">Code walkthrough</h2>
+<br/>
+<p>You can look at the source code <a href="https://github.com/nexxeln/deoxys">here</a>. It’s just a standard Next.js project, I also set up tRPC and Prisma, and connected to my database.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// prisma/schema.prisma</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">model</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">ShortLink</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">id</span><span style="color:#DBD7CAEE">        </span><span style="color:#5DA9A7">Int</span><span style="color:#DBD7CAEE">      </span><span style="color:#80A665">@id</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">@default</span><span style="color:#666666">(</span><span style="color:#B8A965">autoincrement</span><span style="color:#666666">())</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">createdAt</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">DateTime</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">@default</span><span style="color:#666666">(</span><span style="color:#B8A965">now</span><span style="color:#666666">())</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">url</span><span style="color:#DBD7CAEE">       </span><span style="color:#5DA9A7">String</span><span style="color:#DBD7CAEE">   </span><span style="color:#80A665">@db.VarChar</span><span style="color:#666666">(</span><span style="color:#4C9A91">3000</span><span style="color:#666666">)</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">slug</span><span style="color:#DBD7CAEE">      </span><span style="color:#5DA9A7">String</span><span style="color:#DBD7CAEE">   </span><span style="color:#80A665">@unique</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#80A665">@@index</span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">[</span><span style="color:#C99076">slug</span><span style="color:#DBD7CAEE">]</span><span style="color:#666666">)</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>This is the schema for the database. Very simple and minimal. Next, I made the API endpoint that will check if a slug is valid or not. For this I used a <a href="https://nextjs.org/docs/api-routes/introduction">Next.js API Route</a>. I had to do this because the edge function can’t use the prisma client. Note that this is a <a href="https://nextjs.org/docs/api-routes/dynamic-api-routes">dynamic route</a>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">//src/pages/api/get-link/[slug].ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">NextApiRequest</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">NextApiResponse</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">next</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">prisma</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../../../db/client</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">async</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">req</span><span style="color:#666666">: </span><span style="color:#5DA9A7">NextApiRequest</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">res</span><span style="color:#666666">: </span><span style="color:#5DA9A7">NextApiResponse</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const </span><span style="color:#BD976A">slug</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">req</span><span style="color:#666666">.</span><span style="color:#BD976A">query</span><span style="color:#666666">[</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">slug</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#CB7676">!</span><span style="color:#BD976A">slug</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">||</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">typeof</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">slug</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">!==</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">string</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">res</span><span style="color:#666666">.</span><span style="color:#80A665">status</span><span style="color:#666666">(</span><span style="color:#4C9A91">404</span><span style="color:#666666">).</span><span style="color:#80A665">json</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">message</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">please provide a slug</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const </span><span style="color:#BD976A">data</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#BD976A">prisma</span><span style="color:#666666">.</span><span style="color:#BD976A">shortLink</span><span style="color:#666666">.</span><span style="color:#80A665">findFirst</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#B8A965">where</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#B8A965">equals</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">slug</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#CB7676">!</span><span style="color:#BD976A">data</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">res</span><span style="color:#666666">.</span><span style="color:#80A665">status</span><span style="color:#666666">(</span><span style="color:#4C9A91">404</span><span style="color:#666666">).</span><span style="color:#80A665">json</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">message</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">short link not found</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">res</span><span style="color:#666666">.</span><span style="color:#80A665">setHeader</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">Content-Type</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">application/json</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">res</span><span style="color:#666666">.</span><span style="color:#80A665">setHeader</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">Access-Control-Allow-Origin</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">*</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">res</span><span style="color:#666666">.</span><span style="color:#80A665">setHeader</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">Cache-Control</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">s-maxage=1000000000, stale-while-revalidate</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">res</span><span style="color:#666666">.</span><span style="color:#80A665">json</span><span style="color:#666666">(</span><span style="color:#BD976A">data</span><span style="color:#666666">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>If the slug is valid, it is also caching the response for 1000000000 seconds. This is what makes the edge function even faster.</p>
+<br/>
+<p>Next, I wrote my edge function, in Next.js, edge functions are written in <code>pages/_middleware.ts</code></p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/_middleware.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">NextFetchEvent</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">NextRequest</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">NextResponse</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">next/server</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">async</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">middleware</span><span style="color:#666666">(</span><span style="color:#BD976A">req</span><span style="color:#666666">: </span><span style="color:#5DA9A7">NextRequest</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">event</span><span style="color:#666666">: </span><span style="color:#5DA9A7">NextFetchEvent</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">req</span><span style="color:#666666">.</span><span style="color:#BD976A">nextUrl</span><span style="color:#666666">.</span><span style="color:#BD976A">pathname</span><span style="color:#666666">.</span><span style="color:#80A665">startsWith</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">/api/</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">||</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">req</span><span style="color:#666666">.</span><span style="color:#BD976A">nextUrl</span><span style="color:#666666">.</span><span style="color:#BD976A">pathname</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">===</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">/</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const </span><span style="color:#BD976A">slug</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">req</span><span style="color:#666666">.</span><span style="color:#BD976A">nextUrl</span><span style="color:#666666">.</span><span style="color:#BD976A">pathname</span><span style="color:#666666">.</span><span style="color:#80A665">split</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">/</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">).</span><span style="color:#80A665">pop</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const </span><span style="color:#BD976A">fetchSlug</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#80A665">fetch</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">${</span><span style="color:#C98A7D">req</span><span style="color:#666666">.</span><span style="color:#C98A7D">nextUrl</span><span style="color:#666666">.</span><span style="color:#C98A7D">origin</span><span style="color:#666666">}</span><span style="color:#C98A7D">/api/get-link/</span><span style="color:#666666">${</span><span style="color:#C98A7D">slug</span><span style="color:#666666">}</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">fetchSlug</span><span style="color:#666666">.</span><span style="color:#BD976A">status</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">===</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">404</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">NextResponse</span><span style="color:#666666">.</span><span style="color:#80A665">redirect</span><span style="color:#666666">(</span><span style="color:#BD976A">req</span><span style="color:#666666">.</span><span style="color:#BD976A">nextUrl</span><span style="color:#666666">.</span><span style="color:#BD976A">origin</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const </span><span style="color:#BD976A">data</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#BD976A">fetchSlug</span><span style="color:#666666">.</span><span style="color:#80A665">json</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">data</span><span style="color:#666666">?.</span><span style="color:#BD976A">url</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">NextResponse</span><span style="color:#666666">.</span><span style="color:#80A665">redirect</span><span style="color:#666666">(</span><span style="color:#BD976A">data</span><span style="color:#666666">.</span><span style="color:#BD976A">url</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>It calls that endpoint and checks if the slug is valid, if it is it redirects the user to the URL corresponding to the slug. That’s pretty much it.</p>
+<br/>
+<p>Now I built a nice UI for it using Tailwind. I also made two tRPC endpoints. The first one is to check if a slug has been previously used before in real-time. I find this real-time validation to be really cool. Look at this.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_0r37qjkR6I.gif" alt="real-time validation"/></p>
+<p>The second endpoint is to create new links and write it to the database. The code looks like this.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/api/trpc/[trpc].ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">trpc</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@trpc/server</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">trpcNext</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@trpc/server/adapters/next</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">zod</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">prisma</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../../../db/client</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">appRouter</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">trpc</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">.</span><span style="color:#80A665">router</span><span style="color:#666666">()</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">.</span><span style="color:#80A665">query</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">checkSlug</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">input</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">object</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">string</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#CB7676">async</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">resolve</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">input</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">})</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#CB7676">const </span><span style="color:#BD976A">slugCount</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#BD976A">prisma</span><span style="color:#666666">.</span><span style="color:#BD976A">shortLink</span><span style="color:#666666">.</span><span style="color:#80A665">count</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#B8A965">where</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">          </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">            </span><span style="color:#B8A965">equals</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">input</span><span style="color:#666666">.</span><span style="color:#BD976A">slug</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">          </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">used</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">slugCount</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">0</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">})</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">.</span><span style="color:#80A665">mutation</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">createShortLink</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">input</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">object</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">string</span><span style="color:#666666">(),</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">url</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">string</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#CB7676">async</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">resolve</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">input</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">})</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#4D9375">try</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#4D9375">await</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">prisma</span><span style="color:#666666">.</span><span style="color:#BD976A">shortLink</span><span style="color:#666666">.</span><span style="color:#80A665">create</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#B8A965">data</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">input</span><span style="color:#666666">.</span><span style="color:#BD976A">slug</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#B8A965">url</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">input</span><span style="color:#666666">.</span><span style="color:#BD976A">url</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">catch</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">error</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">console</span><span style="color:#666666">.</span><span style="color:#80A665">log</span><span style="color:#666666">(</span><span style="color:#BD976A">error</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">AppRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">typeof</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">appRouter</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">trpcNext</span><span style="color:#666666">.</span><span style="color:#80A665">createNextApiHandler</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">router</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">appRouter</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#80A665">createContext</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">null</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#666666">});</span></span></code></pre>
+<p>I’m also using <a href="https://zod.dev/">zod</a> for input validation here. Really good library.</p>
+<br/>
+<p>The rest was simple, I just made a form component that called my tRPC endpoints. First I declared some state for the form.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#CB7676">const </span><span style="color:#666666">[</span><span style="color:#BD976A">form</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">setForm</span><span style="color:#666666">]</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#80A665">useState</span><span style="color:#666666">&lt;</span><span style="color:#5DA9A7">Form</span><span style="color:#666666">&gt;({</span><span style="color:#CB7676"> </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#C98A7DAA">&quot;&quot;</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#B8A965">url</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#C98A7DAA">&quot;&quot;</span><span style="color:#CB7676"> </span><span style="color:#666666">});</span></span></code></pre>
+<p>I also called my tRPC endpoints here.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#CB7676">const </span><span style="color:#BD976A">checkSlug</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">trpc</span><span style="color:#666666">.</span><span style="color:#80A665">useQuery</span><span style="color:#666666">([</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">checkSlug</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span><span style="color:#CB7676"> </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">form</span><span style="color:#666666">.</span><span style="color:#BD976A">slug</span><span style="color:#CB7676"> </span><span style="color:#666666">}],</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#B8A965">refetchOnReconnect</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#4D9375">false</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#B8A965">refetchOnMount</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#4D9375">false</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#B8A965">refetchOnWindowFocus</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#4D9375">false</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const </span><span style="color:#BD976A">createShortLink</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">trpc</span><span style="color:#666666">.</span><span style="color:#80A665">useMutation</span><span style="color:#666666">([</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">createShortLink</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">]);</span></span></code></pre>
+<p>Here comes the form.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#666666">&lt;</span><span style="color:#4D9375">form</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#BD976A">onSubmit</span><span style="color:#666666">={(</span><span style="color:#BD976A">event</span><span style="color:#666666">: </span><span style="color:#5DA9A7">React</span><span style="color:#666666">.</span><span style="color:#5DA9A7">FormEvent</span><span style="color:#666666">&lt;</span><span style="color:#5DA9A7">HTMLFormElement</span><span style="color:#666666">&gt;)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">event</span><span style="color:#666666">.</span><span style="color:#80A665">preventDefault</span><span style="color:#666666">();</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">createShortLink</span><span style="color:#666666">.</span><span style="color:#80A665">mutate</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">...</span><span style="color:#BD976A">form</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">}}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">mt-6</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">{</span><span style="color:#BD976A">checkSlug</span><span style="color:#666666">.</span><span style="color:#BD976A">data</span><span style="color:#666666">?.</span><span style="color:#BD976A">used</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">span</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">font-medium text-center text-red-500</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          This link has already been used</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">span</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">span</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">font-medium text-center</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">{</span><span style="color:#BD976A">url</span><span style="color:#666666">}</span><span style="color:#DBD7CAEE">/</span><span style="color:#666666">{</span><span style="color:#BD976A">form</span><span style="color:#666666">.</span><span style="color:#BD976A">slug</span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">span</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">)}</span></span>
+<span class="line"><span style="color:#666666">{</span><span style="color:#758575DD">/* ... */</span><span style="color:#666666">}</span></span></code></pre>
+<p>Here, I’m passing an <code>onSubmit</code> function to the form that calls that tRPC mutation and passes the form state in the input. Also this is where I’m actually implementing that real-time validation, if the endpoint returns <code>used</code> as true, it will make the border red and show the error message.</p>
+<br/>
+<p>Inside the form there are just a bunch of inputs, here is how they work.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#666666">&lt;</span><span style="color:#4D9375">input</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">type</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">url</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">value</span><span style="color:#666666">={</span><span style="color:#BD976A">form</span><span style="color:#666666">.</span><span style="color:#BD976A">url</span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">maxLength</span><span style="color:#666666">={</span><span style="color:#4C9A91">3000</span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">onChange</span><span style="color:#666666">={(</span><span style="color:#BD976A">e</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">setForm</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">...</span><span style="color:#BD976A">form</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">url</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">e</span><span style="color:#666666">.</span><span style="color:#BD976A">target</span><span style="color:#666666">.</span><span style="color:#BD976A">value</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">})}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">placeholder</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">https://duckduckgo.com</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">block w-full px-4 py-2 font-normal bg-black border-2 border-gray-200 rounded-md focus:outline-none placeholder:text-gray-400</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">required</span></span>
+<span class="line"><span style="color:#666666">/&gt;</span></span></code></pre>
+<p>This input is for the URL that has to be shortened, here I’m passing an <code>onChange</code> function to set my form state. Also the <code>type=&quot;url&quot;</code> helps in validation.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_tfDkPVfPaL.png" alt="validation"/></p>
+<p>For random slugs, I’m using a library called random-word-slugs, it’s pretty cool. Here’s the code for the random button.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#666666">&lt;</span><span style="color:#4D9375">input</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">type</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">button</span></span>
+<span class="line"><span style="color:#C98A7D">    value=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#FDAEB7">Random&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">px-4 py-2 ml-2 font-medium transition-colors duration-300 bg-indigo-500 border-2 border-indigo-500 rounded cursor-pointer hover:bg-transparent</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">slug</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">generateSlug</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#80A665">setForm</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">...</span><span style="color:#BD976A">form</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#BD976A">slug</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">checkSlug</span><span style="color:#666666">.</span><span style="color:#80A665">refetch</span><span style="color:#666666">();</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">}}</span></span>
+<span class="line"><span style="color:#666666">/&gt;</span></span></code></pre>
+<p>The <code>generateSlug()</code> function comes from the random-word-slugs library. I’m also setting the state, and checking if that particular slug has already been used before.</p>
+<br/>
+<p>Now if the creation of the short link was successful, it shows this page.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_JxlmBMr9P7.png" alt="succesful creation"/></p>
+<p>Here’s the code for that.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">createShortLink</span><span style="color:#666666">.</span><span style="color:#BD976A">status</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">===</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">success</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">flex flex-col items-center justify-center mx-3 mt-6</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">span</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">pb-3 text-lg font-semibold</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Here&#39;s your link!</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">span</span><span style="color:#666666">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">flex items-center gap-2</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h1</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">text-lg text-center md:text-2xl</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;{</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">${</span><span style="color:#C98A7D">url</span><span style="color:#666666">}</span><span style="color:#C98A7D">/</span><span style="color:#666666">${</span><span style="color:#C98A7D">form</span><span style="color:#666666">.</span><span style="color:#C98A7D">slug</span><span style="color:#666666">}</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">}&lt;/</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">px-4 py-1.5 ml-3 font-medium transition-colors duration-300 bg-indigo-500 border-2 border-indigo-500 rounded hover:bg-transparent</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#80A665">copy</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">${</span><span style="color:#C98A7D">url</span><span style="color:#666666">}</span><span style="color:#C98A7D">/</span><span style="color:#666666">${</span><span style="color:#C98A7D">form</span><span style="color:#666666">.</span><span style="color:#C98A7D">slug</span><span style="color:#666666">}</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">}}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          Copy</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">px-4 mt-8 py-1.5 ml-3 font-medium transition-colors duration-300 bg-indigo-500 border-2 border-indigo-500 rounded hover:bg-transparent</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#BD976A">createShortLink</span><span style="color:#666666">.</span><span style="color:#80A665">reset</span><span style="color:#666666">();</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#80A665">setForm</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">url</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">}}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        Create New</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>tRPC returns the status of a mutation too. So here, if it returns <code>success</code>, it shows the shortened URL and a copy to clipboard button. There is also a create new button that resets the tRPC mutation and resets the form state as well.</p>
+<br/>
+<p>You can see the full code for this component <a href="https://github.com/nexxeln/deoxys/blob/main/src/components/CreateLink.tsx">here</a>.</p>
+<br/>
+<p>That’s it. There are a lot of moving parts to this, I hope I gave you nice overview of how deoxys functions.</p>
+<br/>
+<ul>
+<li>Website: <a href="https://deoxys.nexxel.dev">deoxys.nexxel.dev</a></li>
+<li>Code: <a href="https://github.com/nexxeln/deoxys">nexxeln/deoxys</a></li>
+</ul>
+<br/>
+<h2 id="credits">Credits</h2>
+<br/>
+<ul>
+<li><a href="https://www.youtube.com/c/TheoBrowne1017">Theo</a></li>
+<li><a href="https://github.com/heyglassy">Christian</a></li>
+<li><a href="https://github.com/TheoBr/joltik">Joltik</a></li>
+</ul>
+<br/>
+<p>Thanks for reading!</p>
+      </article>
+    </main>
+    <hr class="border-t-2 border-t-neutral-800 mt-24">
+
+<footer class="p-4 text-neutral-400 text-center">
+  <p class="text-neutral-400">
+    This website doesn't track you. Have a nice day.
+  </p>
+  <div class="flex gap-6 items-center justify-center text-sm pt-2">
+    <a href="/rss.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+      </svg>
+      <span>RSS</span>
+    </a>
+    <a href="/sitemap-index.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
+      </svg>
+      <span>Sitemap</span>
+    </a>
+  </div>
+</footer>
+  </body></html>

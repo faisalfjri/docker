@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.ico">
+<meta name="generator" content="Astro v1.9.1">
+
+<!-- Primary Meta Tags -->
+<title>Build a Full Stack App with create-t3-app</title>
+<meta name="title" content="Build a Full Stack App with create-t3-app">
+<meta name="description" content="Let's build a guestbook with all parts of the T3 stack - Next.js, tRPC, Prisma, Tailwind CSS and Next Auth">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shoubhit Dash">
+<meta property="og:url" content="https://faisalfajri.my.id/blog/ct3a-guestbook/">
+<meta property="og:title" content="Build a Full Stack App with create-t3-app">
+<meta property="og:description" content="Let's build a guestbook with all parts of the T3 stack - Next.js, tRPC, Prisma, Tailwind CSS and Next Auth">
+<meta property="og:image" content="https://og.nxl.sh/api/og/?title=Build a Full Stack App with create-t3-app&#38;top=August 11, 2022 • 10 min read ">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://faisalfajri.my.id/blog/ct3a-guestbook/">
+<meta property="twitter:title" content="Build a Full Stack App with create-t3-app">
+<meta property="twitter:description" content="Let's build a guestbook with all parts of the T3 stack - Next.js, tRPC, Prisma, Tailwind CSS and Next Auth">
+<meta property="twitter:image" content="https://og.nxl.sh/api/og/?title=Build a Full Stack App with create-t3-app&#38;top=August 11, 2022 • 10 min read ">
+
+<!-- Link Tags -->
+<link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Client Side Routing -->
+
+
+  <link rel="stylesheet" href="/assets/blog.c0a6cc77.css" />
+<link rel="stylesheet" href="/assets/ct3a-guestbook.355186fa.css" /><script type="module" src="/hoisted.07a57509.js"></script>
+<script type="module" src="/page.5a6f3db5.js"></script></head>
+
+  <body>
+    <header class="astro-S6FU4HZ2">
+  <!-- <h2 class="text-xl pb-1 flex items-center gap-3">
+    <img
+      src="/images/faisal.webp"
+      alt="faisal's avatar"
+      width={50}
+      height={50}
+      class="rounded-full border-none m-0 font-bold"
+    />
+    Shoubhit Dash
+  </h2> -->
+  <nav class="flex gap-3 astro-S6FU4HZ2">
+    <a href="/" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" class="astro-S6FU4HZ2">
+  Home
+</a>
+    <!-- <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/faq">FAQ</HeaderLink> -->
+    <a href="https://github.com/faisalfjri" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" target="_blank" class="astro-S6FU4HZ2">
+  
+      GitHub
+    
+</a>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z2u8foL" component-url="/EmailSelect.0ec7e108.js" component-export="EmailSelect" renderer-url="/client.077f9624.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;EmailSelect&quot;,&quot;value&quot;:true}" await-children=""><div class="relative inline-block text-left" data-headlessui-state=""><div><button class="text-vitesseGreen hover:underline font-medium underline-offset-3px" id="headlessui-menu-button-:R1:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">Email</button></div></div></astro-island>
+  </nav>
+</header>
+
+    <main>
+      <article>
+        <h1>Build a Full Stack App with create-t3-app</h1>
+
+        <div class="pt-4 text-neutral-200">
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path>
+            </svg>
+
+            <time class="text-base">August 11, 2022</time>
+          </div>
+
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+
+            <span class="text-base">10 min read</span>
+          </div>
+        </div>
+        <hr class="border-t border-t-neutral-700 my-8">
+        <blockquote>
+<p>Update: This blog post has been updated on Oct 28, 2022 to use <a href="https://trpc.io/docs/v10/">tRPC v10</a>.</p>
+</blockquote>
+<br/>
+<p>Hey there! Today we’ll be building an application with the <a href="https://init.tips/">T3 stack</a>. We’re going to build a Guestbook inspired by <a href="https://leerob.io/guestbook/">Lee Robinson’s Guestbook</a>. Let’s get right into it!</p>
+<br/>
+<h2 id="getting-started">Getting Started</h2>
+<br/>
+<p>Let’s set up a starter project with <code>create-t3-app</code>!</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npx create-t3-app@latest</span></span></code></pre>
+<p>We’re going to utilize all parts of the stack.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/WindowsTerminal_oPvbaXQZNk.png" alt="create-t3-app"/></p>
+<p>Let’s also set up a Postgres database on <a href="https://railway.app/">Railway</a>. Railway makes it super simple to quickly set up a database.</p>
+<br/>
+<p>Go to <a href="https://railway.app/">Railway</a> and log in with GitHub if you haven’t already. Now click on <code>New Project</code>.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_jYkV1HjSF5.png" alt="New Project"/></p>
+<p>Now provision Postgres.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_pQKKGvQGOM.png" alt="Provision Postgres"/></p>
+<p>It’s as simple as that. Copy the connection string from the <code>Connect</code> tab.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_YjclbRZxB2.png" alt="Copy the connection string"/></p>
+<p>Let’s start coding! Open the project in your favourite code editor.</p>
+<br/>
+<p>There are a lot of folders but don’t be overwhelmed. Here’s a basic overview.</p>
+<br/>
+<ul>
+<li><code>prisma/*</code> - The <code>prisma</code> schema.</li>
+<li><code>public/*</code> - Static assets including fonts and images.</li>
+<li><code>src/env/*</code> - Validation for environment variables.</li>
+<li><code>src/pages/*</code> - All the pages of the website.</li>
+<li><code>src/server/*</code> - The backend, which is a tRPC server.</li>
+<li><code>src/styles/*</code> - Global CSS files, but we’re going to be using Tailwind CSS for most of our styles.</li>
+<li><code>src/types/*</code> - Next Auth type declarations.</li>
+<li><code>src/utils/*</code> - Utility functions.</li>
+</ul>
+<br/>
+<p>Open the <code>.env</code> file and paste the connection string in <code>DATABASE_URL</code>.</p>
+<br/>
+<p>You’ll notice we have <a href="https://discord.com/">Discord</a> OAuth set up using <code>next-auth</code>, so we also need a <code>DISCORD_CLIENT_ID</code> and <code>DISCORD_CLIENT_SECRET</code>. Let’s set that up.</p>
+<br/>
+<h2 id="setting-up-authentication">Setting up authentication</h2>
+<br/>
+<p>Go to the <a href="https://discord.com/developers/">Discord Developers Portal</a> and create a new application.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_Wn1HquVPUC.png" alt="New Application on Discord"/></p>
+<p>Go to <code>OAuth2/General</code> and add all of the callback URLs to <code>Redirects</code>. For localhost the callback URL is <code>http://localhost:3000/api/auth/callback/discord</code>. I also added the production URL ahead of time.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_zLSplMIqPu.png" alt="Add redirects"/></p>
+<p>Copy the client ID and secret and paste both of them into <code>.env</code>.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_49rNuyGZ3g.png" alt="Copy client ID and secret"/></p>
+<p>Set the <code>NEXTAUTH_SECRET</code> as some random string too. Now we have all of our environment variables configured.</p>
+<br/>
+<p>Let’s also change the database to <code>postgresql</code> and uncomment the <code>@db.Text</code> annotations in the <code>Account</code> model in <code>prisma/schema.prisma</code>. All the models you see in the schema are necessary for Next Auth to work.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/WindowsTerminal_dGVMwLI9rH.png" alt="Changes in prisma/schema.prisma"/></p>
+<p>Let’s push this schema to our Railway Postgres database. This command will push our schema to Railway and generate type definitions for the Prisma client.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npx prisma db push</span></span></code></pre>
+<p>Now run the dev server.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npm run dev</span></span></code></pre>
+<p>Go to the <code>src/pages/index.tsx</code> file and delete all the code, let’s just render a heading.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Home</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Guestbook</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Home</span><span style="color:#666666">;</span></span></code></pre>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_5idaJbVWcd.png" alt="Render a heading"/></p>
+<p>I can’t look at light themes, so lets apply some global styles in <code>src/styles/globals.css</code> to make this app dark theme.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">/* src/styles/globals.css */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">@</span><span style="color:#4D9375">tailwind</span><span style="color:#DBD7CAEE"> base</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#666666">@</span><span style="color:#4D9375">tailwind</span><span style="color:#DBD7CAEE"> components</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#666666">@</span><span style="color:#4D9375">tailwind</span><span style="color:#DBD7CAEE"> utilities</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">body</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  @</span><span style="color:#B8A965">apply</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">bg-neutral-</span><span style="color:#DBD7CAEE">900 </span><span style="color:#B8A965">text-neutral-</span><span style="color:#DBD7CAEE">100</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_9Cyhwtd5ab.png" alt="Dark theme"/></p>
+<p>Much better.</p>
+<br/>
+<p>If you look at <code>src/pages/api/auth/[...nextauth].ts</code>, you can see we have Discord OAuth already set up using Next Auth. Here is where you can add more OAuth providers like Google, Twitter, etc.</p>
+<br/>
+<p>Now let’s create a button to let users login with Discord. We can use the <a href="https://next-auth.js.org/getting-started/client#signin"><code>signIn()</code> function</a> from Next Auth.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">signIn</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">next-auth/react</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Home</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Guestbook</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">signIn</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">discord</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)}&gt;</span><span style="color:#DBD7CAEE">Login with Discord</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Home</span><span style="color:#666666">;</span></span></code></pre>
+<p>We can use the <a href="https://next-auth.js.org/getting-started/client#usesession"><code>useSession()</code> hook</a> to get the session for the user. While we’re at it, we can also use the <a href="https://next-auth.js.org/getting-started/client#signout"><code>signOut()</code> function</a> to implement log out functionality.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">signIn</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">signOut</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">useSession</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">next-auth/react</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Home</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">data</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">session</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">status</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">useSession</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">status</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">===</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">loading</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Loading...</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Guestbook</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">{</span><span style="color:#BD976A">session</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">hi </span><span style="color:#666666">{</span><span style="color:#BD976A">session</span><span style="color:#666666">.</span><span style="color:#BD976A">user</span><span style="color:#666666">?.</span><span style="color:#BD976A">name</span><span style="color:#666666">}&lt;/</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">signOut</span><span style="color:#666666">()}&gt;</span><span style="color:#DBD7CAEE">Logout</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">signIn</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">discord</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)}&gt;</span><span style="color:#DBD7CAEE">Login with Discord</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">)}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Home</span><span style="color:#666666">;</span></span></code></pre>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/chrome_bOROpAbB6m.gif" alt="Auth works"/></p>
+<p>Great! We now have auth working. Next Auth really makes it stupidly simple.</p>
+<br/>
+<h2 id="backend">Backend</h2>
+<br/>
+<p>Let’s work on the backend now. We’ll be using <a href="https://trpc.io/">tRPC</a> for our API layer and <a href="https://prisma.io/">Prisma</a> for connecting and querying our database.</p>
+<br/>
+<p>We’re going to have to modify our prisma schema and add a <code>Guestbook</code> model. Each message in the guestbook will have a name and a message. Here’s how the model will look like.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#CB7676">model</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">Guestbook</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">id</span><span style="color:#DBD7CAEE">        </span><span style="color:#5DA9A7">String</span><span style="color:#DBD7CAEE">   </span><span style="color:#80A665">@id</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">@default</span><span style="color:#666666">(</span><span style="color:#B8A965">cuid</span><span style="color:#666666">())</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">createdAt</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">DateTime</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">@default</span><span style="color:#666666">(</span><span style="color:#B8A965">now</span><span style="color:#666666">())</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">name</span><span style="color:#DBD7CAEE">      </span><span style="color:#5DA9A7">String</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">message</span><span style="color:#DBD7CAEE">   </span><span style="color:#5DA9A7">String</span><span style="color:#DBD7CAEE">   </span><span style="color:#80A665">@db.VarChar</span><span style="color:#666666">(</span><span style="color:#4C9A91">100</span><span style="color:#666666">)</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>Let’s push this modified schema to our Railway Postgres database.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npx prisma db push</span></span></code></pre>
+<p>Now let’s get to the fun part - it’s tRPC time. Go ahead and delete the <code>example.ts</code> file in <code>src/server/trpc/router</code>. First, we’re going to define a mutation to post messages to our database.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/trpc/router/guestbook.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">zod</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">router</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">publicProcedure</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../trpc</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">guestbookRouter</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#80A665">router</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#B8A965">postMessage</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">publicProcedure</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">.</span><span style="color:#80A665">input</span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">object</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#B8A965">name</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">string</span><span style="color:#666666">(),</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#B8A965">message</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">string</span><span style="color:#666666">(),</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">})</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">)</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">.</span><span style="color:#80A665">mutation</span><span style="color:#666666">(</span><span style="color:#CB7676">async </span><span style="color:#666666">({</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctx</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">input</span><span style="color:#CB7676"> </span><span style="color:#666666">})</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#4D9375">try</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctx</span><span style="color:#666666">.</span><span style="color:#BD976A">prisma</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#80A665">create</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">          </span><span style="color:#B8A965">data</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">            </span><span style="color:#B8A965">name</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">input</span><span style="color:#666666">.</span><span style="color:#BD976A">name</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">            </span><span style="color:#B8A965">message</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">input</span><span style="color:#666666">.</span><span style="color:#BD976A">message</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">          </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">}</span><span style="color:#CB7676"> </span><span style="color:#4D9375">catch</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">error</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#BD976A">console</span><span style="color:#666666">.</span><span style="color:#80A665">log</span><span style="color:#666666">(</span><span style="color:#BD976A">error</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">}),</span></span>
+<span class="line"><span style="color:#666666">});</span></span></code></pre>
+<p>Here we have a tRPC mutation that uses <a href="https://zod.dev/">zod</a> to validate the input and has an async function that runs a single prisma query to create a new row in the <code>Guestbook</code> table.</p>
+<br/>
+<p>Working with Prisma is an absolutely wonderful example. The autocomplete and typesafety is amazing.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/WindowsTerminal_YMCqQ9tXC0.gif" alt="Autocomplete"/></p>
+<p>We also want this mutation to be protected. Here we can use <a href="https://trpc.io/docs/middlewares">tRPC middlewares</a>.</p>
+<br/>
+<p>If you take a look at the <code>src/server/common/get-server-auth-session.ts</code> file, we’re using <a href="https://next-auth.js.org/configuration/nextjs#unstable_getserversession"><code>unstable_getServerSession</code></a> from Next Auth that gives us access to the session on the server.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/common/get-server-auth-session.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">GetServerSidePropsContext</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">next</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">unstable_getServerSession</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">next-auth</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">authOptions</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">nextAuthOptions</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../../pages/api/auth/[...nextauth]</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#80A665">getServerAuthSession</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> async </span><span style="color:#666666">(</span><span style="color:#BD976A">ctx</span><span style="color:#666666">: {</span></span>
+<span class="line"><span style="color:#666666">  </span><span style="color:#BD976A">req</span><span style="color:#666666">: </span><span style="color:#5DA9A7">GetServerSidePropsContext</span><span style="color:#666666">[</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">req</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">];</span></span>
+<span class="line"><span style="color:#666666">  </span><span style="color:#BD976A">res</span><span style="color:#666666">: </span><span style="color:#5DA9A7">GetServerSidePropsContext</span><span style="color:#666666">[</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">res</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">];</span></span>
+<span class="line"><span style="color:#666666">})</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#80A665">unstable_getServerSession</span><span style="color:#666666">(</span><span style="color:#BD976A">ctx</span><span style="color:#666666">.</span><span style="color:#BD976A">req</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctx</span><span style="color:#666666">.</span><span style="color:#BD976A">res</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">nextAuthOptions</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>We’re passing that session into our tRPC context.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/trpc/context.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#80A665">createContext</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> async </span><span style="color:#666666">(</span><span style="color:#BD976A">opts</span><span style="color:#666666">: </span><span style="color:#5DA9A7">CreateNextContextOptions</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">  const </span><span style="color:#666666">{</span><span style="color:#CB7676"> </span><span style="color:#BD976A">req</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">res</span><span style="color:#CB7676"> </span><span style="color:#666666">}</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">opts</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#CB7676">  const </span><span style="color:#BD976A">session</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#80A665">getServerAuthSession</span><span style="color:#666666">({</span><span style="color:#CB7676"> </span><span style="color:#BD976A">req</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">res</span><span style="color:#CB7676"> </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#80A665">createContextInner</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#BD976A">session</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">Context</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">inferAsyncReturnType</span><span style="color:#666666">&lt;</span><span style="color:#CB7676">typeof</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">createContext</span><span style="color:#666666">&gt;;</span></span></code></pre>
+<p>Then, we can use this session to make our mutation protected using a <code>protectedProcedure</code>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/trpc/trpc.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const </span><span style="color:#BD976A">isAuthed</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">t</span><span style="color:#666666">.</span><span style="color:#80A665">middleware</span><span style="color:#666666">(({</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctx</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">next</span><span style="color:#CB7676"> </span><span style="color:#666666">})</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#4D9375">if</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#CB7676">!</span><span style="color:#BD976A">ctx</span><span style="color:#666666">.</span><span style="color:#BD976A">session</span><span style="color:#CB7676"> || !</span><span style="color:#BD976A">ctx</span><span style="color:#666666">.</span><span style="color:#BD976A">session</span><span style="color:#666666">.</span><span style="color:#BD976A">user</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">throw</span><span style="color:#CB7676"> new </span><span style="color:#80A665">TRPCError</span><span style="color:#666666">({</span><span style="color:#CB7676"> </span><span style="color:#B8A965">code</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">UNAUTHORIZED</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#CB7676"> </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#80A665">next</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#B8A965">ctx</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#B8A965">session</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span><span style="color:#CB7676"> </span><span style="color:#666666">...</span><span style="color:#BD976A">ctx</span><span style="color:#666666">.</span><span style="color:#BD976A">session</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#B8A965">user</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctx</span><span style="color:#666666">.</span><span style="color:#BD976A">session</span><span style="color:#666666">.</span><span style="color:#BD976A">user</span><span style="color:#CB7676"> </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">protectedProcedure</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">t</span><span style="color:#666666">.</span><span style="color:#BD976A">procedure</span><span style="color:#666666">.</span><span style="color:#80A665">use</span><span style="color:#666666">(</span><span style="color:#BD976A">isAuthed</span><span style="color:#666666">);</span></span></code></pre>
+<p>Now, replace <code>publicProcedure</code> with <code>protectedProcedure</code> to make our mutation protected from unauthenticated users.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/trpc/router/guestbook.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">zod</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">router</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">protectedProcedure</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../trpc</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">guestbookRouter</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#80A665">router</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#B8A965">postMessage</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">protectedProcedure</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">.</span><span style="color:#80A665">input</span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">object</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#B8A965">name</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">string</span><span style="color:#666666">(),</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#B8A965">message</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">string</span><span style="color:#666666">(),</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">})</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">)</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">.</span><span style="color:#80A665">mutation</span><span style="color:#666666">(</span><span style="color:#CB7676">async </span><span style="color:#666666">({</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctx</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">input</span><span style="color:#CB7676"> </span><span style="color:#666666">})</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#4D9375">try</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctx</span><span style="color:#666666">.</span><span style="color:#BD976A">prisma</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#80A665">create</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">          </span><span style="color:#B8A965">data</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">            </span><span style="color:#B8A965">name</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">input</span><span style="color:#666666">.</span><span style="color:#BD976A">name</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">            </span><span style="color:#B8A965">message</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">input</span><span style="color:#666666">.</span><span style="color:#BD976A">message</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">          </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">}</span><span style="color:#CB7676"> </span><span style="color:#4D9375">catch</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">error</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#BD976A">console</span><span style="color:#666666">.</span><span style="color:#80A665">log</span><span style="color:#666666">(</span><span style="color:#BD976A">error</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">}),</span></span>
+<span class="line"><span style="color:#666666">});</span></span></code></pre>
+<p>Next, let’s write a query to get all messages in the guestbook. We want all guests to see the messages so we’ll use the <code>publicProcedure</code> for this.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/trpc/router/guestbook.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">zod</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">router</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">protectedProcedure</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">publicProcedure</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../trpc</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">guestbookRouter</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#80A665">router</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#B8A965">getAll</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">publicProcedure</span><span style="color:#666666">.</span><span style="color:#80A665">query</span><span style="color:#666666">(</span><span style="color:#CB7676">async </span><span style="color:#666666">({</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctx</span><span style="color:#CB7676"> </span><span style="color:#666666">})</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">try</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#4D9375">await</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctx</span><span style="color:#666666">.</span><span style="color:#BD976A">prisma</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#80A665">findMany</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#B8A965">select</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">          </span><span style="color:#B8A965">name</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#4D9375">true</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">          </span><span style="color:#B8A965">message</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#4D9375">true</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#B8A965">orderBy</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">          </span><span style="color:#B8A965">createdAt</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">desc</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#CB7676">        </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">}</span><span style="color:#CB7676"> </span><span style="color:#4D9375">catch</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">error</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#BD976A">console</span><span style="color:#666666">.</span><span style="color:#80A665">log</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">error</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">error</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">}),</span></span>
+<span class="line"><span style="color:#666666">  </span><span style="color:#758575DD">//...</span></span></code></pre>
+<p>Here we are getting just the name and message from all the rows from the <code>Guestbook</code> model. The rows are sorted in descending order by the <code>createdAt</code> field.</p>
+<br/>
+<p>Now merge this router in the main <code>appRouter</code>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/trpc/router/_app.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">router</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../trpc</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">guestbookRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">./guestbook.ts</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">appRouter</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#80A665">router</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#B8A965">guestbook</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">guestbookRouter</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#758575DD">// export type definition of API</span></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">AppRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">typeof</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">appRouter</span><span style="color:#666666">;</span></span></code></pre>
+<p>We’re pretty much done on the backend part. Let’s work on the UI next.</p>
+<br/>
+<h2 id="frontend">Frontend</h2>
+<br/>
+<p>Let’s first center everything.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">signIn</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">signOut</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">useSession</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">next-auth/react</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Home</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">data</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">session</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">status</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">useSession</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">status</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">===</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">loading</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">main</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">flex flex-col items-center pt-4</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Loading...</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">main</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">flex flex-col items-center</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h1</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">text-3xl pt-4</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Guestbook</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        Tutorial for </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">code</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">create-t3-app</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">code</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">pt-10</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">{</span><span style="color:#BD976A">session</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">              </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">hi </span><span style="color:#666666">{</span><span style="color:#BD976A">session</span><span style="color:#666666">.</span><span style="color:#BD976A">user</span><span style="color:#666666">?.</span><span style="color:#BD976A">name</span><span style="color:#666666">}&lt;/</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">              </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">signOut</span><span style="color:#666666">()}&gt;</span><span style="color:#DBD7CAEE">Logout</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">signIn</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">discord</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)}&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">              Login with Discord</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">)}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Home</span><span style="color:#666666">;</span></span></code></pre>
+<p>I also made the heading bigger and added some padding between the elements.</p>
+<br/>
+<p>Let’s use our tRPC query to get all the messages for the guestbook in the database. But we don’t have any data right now. We can use <a href="https://prisma.io/studio/">Prisma Studio</a> to add some data manually.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npx prisma studio</span></span></code></pre>
+<p>It will automatically open on <code>http://localhost:5555</code>. Go to the <code>Guestbook</code> table and add a bunch of records like this.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_YqVtwL8NU0.gif" alt="Using Prisma Studio"/></p>
+<p>Now that we have data, we can use the query and display the data. For this we can use the tRPC <code>react-query</code> wrapper. Let’s create a component for this in <code>src/pages/index.tsx</code>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">trpc</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../utils/trpc</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Messages</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">data</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">messages</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">isLoading</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">trpc</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#BD976A">getAll</span><span style="color:#666666">.</span><span style="color:#80A665">useQuery</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">isLoading</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Fetching messages...</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">flex flex-col gap-4</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">{</span><span style="color:#BD976A">messages</span><span style="color:#666666">?.</span><span style="color:#80A665">map</span><span style="color:#666666">((</span><span style="color:#BD976A">msg</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">index</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">key</span><span style="color:#666666">={</span><span style="color:#BD976A">index</span><span style="color:#666666">}&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;{</span><span style="color:#BD976A">msg</span><span style="color:#666666">.</span><span style="color:#BD976A">message</span><span style="color:#666666">}&lt;/</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">span</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">- </span><span style="color:#666666">{</span><span style="color:#BD976A">msg</span><span style="color:#666666">.</span><span style="color:#BD976A">name</span><span style="color:#666666">}&lt;/</span><span style="color:#4D9375">span</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">})}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>Here we’re using <code>useQuery()</code> and mapping over the array it returns.</p>
+<br/>
+<p>Of course here too we have wonderful typesafety and autocomplete.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/WindowsTerminal_hYsc9KcivD.gif" alt="tRPC automcomplete"/></p>
+<p>Now render this component in the <code>Home</code> component.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"><span style="color:#666666">&lt;</span><span style="color:#4D9375">main</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">flex flex-col items-center</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h1</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">text-3xl pt-4</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Guestbook</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    Tutorial for </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">code</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">create-t3-app</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">code</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">pt-10</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">{</span><span style="color:#BD976A">session</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">hi </span><span style="color:#666666">{</span><span style="color:#BD976A">session</span><span style="color:#666666">.</span><span style="color:#BD976A">user</span><span style="color:#666666">?.</span><span style="color:#BD976A">name</span><span style="color:#666666">}&lt;/</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">signOut</span><span style="color:#666666">()}&gt;</span><span style="color:#DBD7CAEE">Logout</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">signIn</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">discord</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)}&gt;</span><span style="color:#DBD7CAEE">Login with Discord</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">)}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">pt-10</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Messages</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#666666">&lt;/</span><span style="color:#4D9375">main</span><span style="color:#666666">&gt;</span></span></code></pre>
+<p>Let’s now create a form component in <code>src/pages/index.tsx</code> and use our tRPC mutation there.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Form</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span><span style="color:#BD976A">message</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">setMessage</span><span style="color:#666666">]</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">useState</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;&quot;</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">postMessage</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">trpc</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#BD976A">postMessage</span><span style="color:#666666">.</span><span style="color:#80A665">useMutation</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">form</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">flex gap-2</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#BD976A">onSubmit</span><span style="color:#666666">={(</span><span style="color:#BD976A">event</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">event</span><span style="color:#666666">.</span><span style="color:#80A665">preventDefault</span><span style="color:#666666">();</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">postMessage</span><span style="color:#666666">.</span><span style="color:#80A665">mutate</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#B8A965">name</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">session</span><span style="color:#666666">.</span><span style="color:#BD976A">user</span><span style="color:#666666">?.</span><span style="color:#BD976A">name</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">string</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#BD976A">message</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">});</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#80A665">setMessage</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;&quot;</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">}}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">input</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">type</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">text</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">value</span><span style="color:#666666">={</span><span style="color:#BD976A">message</span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">placeholder</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">Your message...</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">minLength</span><span style="color:#666666">={</span><span style="color:#4C9A91">2</span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">maxLength</span><span style="color:#666666">={</span><span style="color:#4C9A91">100</span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">onChange</span><span style="color:#666666">={(</span><span style="color:#BD976A">event</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">setMessage</span><span style="color:#666666">(</span><span style="color:#BD976A">event</span><span style="color:#666666">.</span><span style="color:#BD976A">target</span><span style="color:#666666">.</span><span style="color:#BD976A">value</span><span style="color:#666666">)}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">px-4 py-2 rounded-md border-2 border-zinc-800 bg-neutral-900 focus:outline-none</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">type</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">submit</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">p-2 rounded-md border-2 border-zinc-800 focus:outline-none</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        Submit</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">form</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>We can now render the <code>Form</code> in the <code>Home</code> component and add some padding.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">{</span><span style="color:#BD976A">session</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">hi </span><span style="color:#666666">{</span><span style="color:#BD976A">session</span><span style="color:#666666">.</span><span style="color:#BD976A">user</span><span style="color:#666666">?.</span><span style="color:#BD976A">name</span><span style="color:#666666">}&lt;/</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">signOut</span><span style="color:#666666">()}&gt;</span><span style="color:#DBD7CAEE">Logout</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">pt-6</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Form</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">onClick</span><span style="color:#666666">={()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">signIn</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">discord</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)}&gt;</span><span style="color:#DBD7CAEE">Login with Discord</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">)}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">pt-10</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Messages</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span></code></pre>
+<p>Here we have a form and we’re using <code>useMutation()</code> to post the data to the database. But you’ll notice one problem here. When we click on the submit button, it does post the message to the database, but the user doesn’t get any immediate feedback. Only on refreshing the page, the user can see the new message.</p>
+<br/>
+<p>For this we can use optimistic UI updates! <code>react-query</code> makes this trivial to do. We just need to add some stuff to our <code>useMutation()</code> hook.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const </span><span style="color:#BD976A">utils</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">trpc</span><span style="color:#666666">.</span><span style="color:#80A665">useContext</span><span style="color:#666666">();</span></span>
+<span class="line"><span style="color:#CB7676">const </span><span style="color:#BD976A">postMessage</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">trpc</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#BD976A">postMessage</span><span style="color:#666666">.</span><span style="color:#80A665">useMutation</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#80A665">onMutate</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">()</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#BD976A">utils</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#BD976A">getAll</span><span style="color:#666666">.</span><span style="color:#80A665">cancel</span><span style="color:#666666">();</span></span>
+<span class="line"><span style="color:#CB7676">    const </span><span style="color:#BD976A">optimisticUpdate</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">utils</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#BD976A">getAll</span><span style="color:#666666">.</span><span style="color:#80A665">getData</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">if</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">optimisticUpdate</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#BD976A">utils</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#BD976A">getAll</span><span style="color:#666666">.</span><span style="color:#80A665">setData</span><span style="color:#666666">(</span><span style="color:#BD976A">optimisticUpdate</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#80A665">onSettled</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#666666">()</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#BD976A">utils</span><span style="color:#666666">.</span><span style="color:#BD976A">guestbook</span><span style="color:#666666">.</span><span style="color:#BD976A">getAll</span><span style="color:#666666">.</span><span style="color:#80A665">invalidate</span><span style="color:#666666">();</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#666666">});</span></span></code></pre>
+<p>If you want to learn more about this code example, you can read about optimistic updates with <code>react-query</code> <a href="https://react-query-v3.tanstack.com/guides/optimistic-updates">here</a>.</p>
+<br/>
+<p>We’re pretty much done with the coding part! That was pretty simple wasn’t it. The T3 stack makes it super easy and quick to build full stack web apps. Let’s now deploy our guestbook.</p>
+<br/>
+<h2 id="deployment">Deployment</h2>
+<br/>
+<p>We’re going to use <a href="https://vercel.com/?utm_source=t3-oss&#38;utm_campaign=oss">Vercel</a> to deploy. Vercel makes it really easy to deploy NextJS apps, they are the people who made NextJS.</p>
+<br/>
+<p>First, push your code to a <a href="https://github.com/">GitHub</a> repository. Now, go to <a href="https://vercel.com/?utm_source=t3-oss&#38;utm_campaign=oss">Vercel</a> and sign up with GitHub if you haven’t already.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_fusvFkqV31.png" alt="Vercel"/></p>
+<p>Then click on <code>New Project</code> and import your newly created repository.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_HSkZeIQz9z.png" alt="Import repository"/></p>
+<p>Now we need to add environment variables, so copy paste all the environment variables to Vercel. After you’ve done that, click <code>Deploy</code>.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_DPISCJZARJ.png" alt="Add environment variables, then click Deploy"/></p>
+<p>Add a custom domain if you have one and you’re done! Congratulations!</p>
+<br/>
+<p>All the code can be found <a href="https://github.com/nexxeln/guestbook-blog">here</a>. You can visit the website at <a href="https://guestbook.nxl.sh/">guestbook.nxl.sh</a>.</p>
+<br/>
+<h2 id="credits">Credits</h2>
+<br/>
+<ul>
+<li><a href="https://github.com/AyanavaKarmakar">Ayanava Karmakar</a> for updating the blog using tRPC v10.</li>
+<li><a href="https://github.com/juliusmarminge">Julius Marminge</a> and <a href="https://github.com/vlmlee">Michael Lee</a> for reviewing the updated blog.</li>
+<li><a href="https://leerob.io">Lee Robinson</a> for the idea of a guestbook.</li>
+<li><a href="https://twitter.com/ajcwebdev">Anthony</a> for giving constructive criticism.</li>
+<li><a href="https://github.com/JARofStuff">JAR</a> and <a href="https://github.com/Krish120003">Krish</a> for proof reading.</li>
+</ul>
+      </article>
+    </main>
+    <hr class="border-t-2 border-t-neutral-800 mt-24">
+
+<footer class="p-4 text-neutral-400 text-center">
+  <p class="text-neutral-400">
+    This website doesn't track you. Have a nice day.
+  </p>
+  <div class="flex gap-6 items-center justify-center text-sm pt-2">
+    <a href="/rss.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+      </svg>
+      <span>RSS</span>
+    </a>
+    <a href="/sitemap-index.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
+      </svg>
+      <span>Sitemap</span>
+    </a>
+  </div>
+</footer>
+  </body></html>

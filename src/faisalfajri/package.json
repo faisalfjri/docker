@@ -1,7 +1,7 @@
 {
-  "name": "buatsurat-frontend",
+  "name": "faisalfajri",
   "version": "1.0.0",
-  "description": "Buatsurat frontend - React.js + Vite",
+  "description": "Node.js on Docker",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

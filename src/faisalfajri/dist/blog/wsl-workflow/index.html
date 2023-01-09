@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.ico">
+<meta name="generator" content="Astro v1.9.1">
+
+<!-- Primary Meta Tags -->
+<title>My Developer Workflow Using WSL, tmux and Neovim</title>
+<meta name="title" content="My Developer Workflow Using WSL, tmux and Neovim">
+<meta name="description" content="I live on the terminal now. Learn about the tools I use set up a productive developer environment.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shoubhit Dash">
+<meta property="og:url" content="https://faisalfajri.my.id/blog/wsl-workflow/">
+<meta property="og:title" content="My Developer Workflow Using WSL, tmux and Neovim">
+<meta property="og:description" content="I live on the terminal now. Learn about the tools I use set up a productive developer environment.">
+<meta property="og:image" content="https://og.nxl.sh/api/og/?title=My Developer Workflow Using WSL, tmux and Neovim&#38;top=August 16, 2022 • 6 min read ">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://faisalfajri.my.id/blog/wsl-workflow/">
+<meta property="twitter:title" content="My Developer Workflow Using WSL, tmux and Neovim">
+<meta property="twitter:description" content="I live on the terminal now. Learn about the tools I use set up a productive developer environment.">
+<meta property="twitter:image" content="https://og.nxl.sh/api/og/?title=My Developer Workflow Using WSL, tmux and Neovim&#38;top=August 16, 2022 • 6 min read ">
+
+<!-- Link Tags -->
+<link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Client Side Routing -->
+
+
+  <link rel="stylesheet" href="/assets/blog.c0a6cc77.css" />
+<link rel="stylesheet" href="/assets/ct3a-guestbook.355186fa.css" /><script type="module" src="/hoisted.07a57509.js"></script>
+<script type="module" src="/page.5a6f3db5.js"></script></head>
+
+  <body>
+    <header class="astro-S6FU4HZ2">
+  <!-- <h2 class="text-xl pb-1 flex items-center gap-3">
+    <img
+      src="/images/faisal.webp"
+      alt="faisal's avatar"
+      width={50}
+      height={50}
+      class="rounded-full border-none m-0 font-bold"
+    />
+    Shoubhit Dash
+  </h2> -->
+  <nav class="flex gap-3 astro-S6FU4HZ2">
+    <a href="/" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" class="astro-S6FU4HZ2">
+  Home
+</a>
+    <!-- <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/faq">FAQ</HeaderLink> -->
+    <a href="https://github.com/faisalfjri" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" target="_blank" class="astro-S6FU4HZ2">
+  
+      GitHub
+    
+</a>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z2u8foL" component-url="/EmailSelect.0ec7e108.js" component-export="EmailSelect" renderer-url="/client.077f9624.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;EmailSelect&quot;,&quot;value&quot;:true}" await-children=""><div class="relative inline-block text-left" data-headlessui-state=""><div><button class="text-vitesseGreen hover:underline font-medium underline-offset-3px" id="headlessui-menu-button-:R1:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">Email</button></div></div></astro-island>
+  </nav>
+</header>
+
+    <main>
+      <article>
+        <h1>My Developer Workflow Using WSL, tmux and Neovim</h1>
+
+        <div class="pt-4 text-neutral-200">
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path>
+            </svg>
+
+            <time class="text-base">August 16, 2022</time>
+          </div>
+
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+
+            <span class="text-base">6 min read</span>
+          </div>
+        </div>
+        <hr class="border-t border-t-neutral-700 my-8">
+        <p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_fpyOEGTmBd.png" alt="Screenshot of my terminal"/></p>
+<p>Hi! Today I’m gonna talk about my daily developer workflow and all the tools I use to set up a productive enviroment for coding. I think having a nice looking terminal and some tools to save time are really helpful to keep you productive in daily coding sessions.</p>
+<br/>
+<h2 id="operating-system">Operating System</h2>
+<br/>
+<p>I use Windows and it’s pretty much unusable for programming. Thankfully Microsoft understood that and made <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux</a> also known as <code>WSL</code> in short. It lets you run a Linux distribution inside of Windows.</p>
+<br/>
+<p>I use <a href="https://ubuntu.com/">Ubuntu</a>, it’s the default distribution that is installed with <code>WSL</code>. Ubuntu is really simple to use and has a huge community so getting support is very easy. I highly recommend it for anyone who wants to start using Linux and get familiar with basic Linux commands.</p>
+<br/>
+<h2 id="shell">Shell</h2>
+<br/>
+<p>Ubuntu by default comes with the bash shell. Bash is great but I personally find it harder to customize. That is why I use <a href="https://zsh.org/">Z shell</a>, more commonly known as <code>zsh</code>. To manage my <code>zsh</code> configuration, I use <a href="https://ohmyz.sh/">Oh My Zsh</a>. It has a huge community and makes it trivial to install and use plugins.</p>
+<br/>
+<p>I used to use <a href="https://fishshell.com/">fish</a> which is also a great shell. It has very sensible defaults and comes with a lot of cool features like autosuggestions, tab completions, etc. out of the box without the need to set up anything. The only problem with fish is that it is not <code>POSIX-compliant</code>. <a href="https://en.wikipedia.org/wiki/POSIX">POSIX</a> is a set of standards that define how to develop programs for UNIX based operating systems. So in fish, things like bash scripts do not work. They have their own scripting language.</p>
+<br/>
+<p><code>zsh</code> on the other hand is fully POSIX-compliant. This is why I switched to <code>zsh</code> and I’m quite happy with it so far.</p>
+<br/>
+<h2 id="prompt">Prompt</h2>
+<br/>
+<p>I use <a href="https://starship.rs/">Starship</a> for my prompt and it is AMAZING. Written in <a href="https://rust-lang.org/">Rust</a>, Starship is a minimal, highly customizable and super fast prompt. The default look of it is really good but literally every little detail is customizable to your liking. To install Starship refer to these <a href="https://starship.rs/guide/#%F0%9F%9A%80-installation">docs</a>.</p>
+<br/>
+<p>The configuration file for Starship lives in <code>~/.config/starship.toml</code>. Here’s my <code>starship.toml</code>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD"># ~/.config/starship.toml</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">aws</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">  </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">conda</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">dart</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#BD976A">format</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">via [$symbol]($style)</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">directory</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">read_only</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#BD976A">truncation_length</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">docker_context</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">elixir</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#BD976A">format</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&#39;</span><span style="color:#C98A7D">via [$symbol]($style)</span><span style="color:#C98A7DAA">&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">elm</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">git_branch</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">golang</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#BD976A">format</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&#39;</span><span style="color:#C98A7D">via [$symbol]($style)</span><span style="color:#C98A7DAA">&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">hg_branch</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">java</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#BD976A">format</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&#39;</span><span style="color:#C98A7D">via [$symbol]($style)</span><span style="color:#C98A7DAA">&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">julia</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">memory_usage</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">nim</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">nix_shell</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">nodejs</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#BD976A">format</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&#39;</span><span style="color:#C98A7D">via [$symbol]($style)</span><span style="color:#C98A7DAA">&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">package</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">perl</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">php</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">python</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#BD976A">format</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&#39;</span><span style="color:#C98A7D">via [$symbol]($style)</span><span style="color:#C98A7DAA">&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">ruby</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">rust</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">format</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&#39;</span><span style="color:#C98A7D">via [$symbol]($style)</span><span style="color:#C98A7DAA">&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">scala</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">shlvl</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">swift</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">symbol</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">ﯣ </span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#BD976A">format</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&#39;</span><span style="color:#C98A7D">via [$symbol]($style)</span><span style="color:#C98A7DAA">&#39;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">[</span><span style="color:#80A665">git_status</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#BD976A">disabled</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">true</span></span></code></pre>
+<p>The icons aren’t showing up here because you need a <a href="https://github.com/ryanoasis/nerd-fonts">nerd font</a> for that. If you set up a Nerd Font (I recommend <a href="https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack">Hack</a>), and copy this configuration, you’ll get a very minimal looking prompt like this. For more information on configuring Starship, you can look at the docs <a href="https://starship.rs/config/">here</a>.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_jS3SFqMm0V.png" alt="Startship prompt"/></p>
+<p>Having a nice looking terminal always helps!</p>
+<br/>
+<h2 id="persistent-terminal-sessions-with-tmux">Persistent Terminal Sessions with tmux</h2>
+<br/>
+<p><a href="https://en.wikipedia.org/wiki/Tmux">tmux</a> is a terminal multiplexer. It lets you have multiple persistent terminal sessions and come back to them without terminating the existing running processes. So you can return to a workspace, exactly where you left it. It also allows you to manage multiple windows and panes inside a session.</p>
+<br/>
+<p>For example, to go to my website’s workspace, I just have to type <code>website</code> and I’m there.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_4o6jA67dhy.gif" alt="Typed website and I'm in my tmux workspace"/></p>
+<p>Here <code>website</code> is an alias I’ve set up to open the <code>website</code> tmux session.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD"># .zshrc</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B8A965">alias</span><span style="color:#DBD7CAEE"> website=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">tmux attach-session -t website</span><span style="color:#C98A7DAA">&quot;</span></span></code></pre>
+<p>This way I can jump into any one of my workspaces really quickly and start coding. It also helps that I’m exactly where I left off. I highly recommend tmux for local development, it has changed how I work and increased my productivity by a massive amount.</p>
+<br/>
+<h2 id="neovim">Neovim</h2>
+<br/>
+<p>I had been using <a href="https://code.visualstudio.com/">VSCode</a> as my code editor since the first day I started learning programming, but recently I have switched to <a href="https://neovim.io/">Neovim</a>. It is a modern version of <a href="https://www.vim.org/">Vim</a>.</p>
+<br/>
+<p>Neovim is the best code editor for me because of its speed and ease of customization. All the configuration is written in <a href="https://www.lua.org/">Lua</a>, which is very easy to learn and write. It helps me be really fast and productive because I never have to take my hands off of my keyboard.</p>
+<br/>
+<p>You can find my Neovim configuration <a href="https://github.com/nexxeln/nvim">here</a>. It’s just a fork of <a href="https://github.com/craftzdog/dotfiles-public">craftzdog’s configuration</a>.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_QbDZP3dZbv.png" alt="Screenshot of Neovim auto-importing useEffect from React"/></p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_c2klZUhRLU.png" alt="Screenshot of telescope file finder in Neovim"/></p>
+<h2 id="zoxide">zoxide</h2>
+<br/>
+<p>You might have seen in some of the screenshots that I just have to run <code>z license-generator</code> to jump to that directory. That is <a href="https://github.com/ajeetdsouza/zoxide"><code>zoxide</code></a>. Also written in <a href="https://rust-lang.org/">Rust</a>, it’s a smarted <code>cd</code> command that remembers which directories you visit frequently, so you can jump to those directories with just one command.</p>
+<p><img src="https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/contrib/tutorial.webp" alt="Demonstration of zoxide"/></p>
+<p>The above GIF is from the <a href="https://github.com/ajeetdsouza/zoxide">zoxide GitHub repository</a>. Use <code>zoxide</code> to never go back to <code>cd</code> hell again.</p>
+<br/>
+<h2 id="exa">exa</h2>
+<br/>
+<p><a href="https://github.com/ogham/exa"><code>exa</code></a> is a modern replacement of the <code>ls</code> command. I always find myself using <code>exa</code> to get familiar with the files in a new codebase.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_es6V6y6yIo.png" alt="ls -la command"/></p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_qNXvN9cMHy.png" alt="with exa"/></p>
+<p>As you can see in the screenshot, <code>exa</code> has a more readable output with colors and icons which you can look at and instantly know the filetypes of different files. It is also noticeably faster than <code>ls</code>.</p>
+<br/>
+<p>It also has a <a href="https://github.com/ogham/exa#command-line-options">lot of flags</a> which display the data is different formats. Here are the aliases I’ve set up for <code>exa</code>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD"># .zshrc</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B8A965">alias</span><span style="color:#DBD7CAEE"> ll=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">exa -l -g --icons --git</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#B8A965">alias</span><span style="color:#DBD7CAEE"> llt=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">exa -1 --icons --tree --git-ignore</span><span style="color:#C98A7DAA">&quot;</span></span></code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<br/>
+<p>That was a quick overview of all the tools I use on a day-to-day basis for coding. I think it’s really important to spend some time working on your workflow and coding setup, it will make you faster over time. I hope you found the tools I listed useful and will incorporate them in your workflow too!</p>
+<br/>
+<p>Thanks for reading!</p>
+      </article>
+    </main>
+    <hr class="border-t-2 border-t-neutral-800 mt-24">
+
+<footer class="p-4 text-neutral-400 text-center">
+  <p class="text-neutral-400">
+    This website doesn't track you. Have a nice day.
+  </p>
+  <div class="flex gap-6 items-center justify-center text-sm pt-2">
+    <a href="/rss.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+      </svg>
+      <span>RSS</span>
+    </a>
+    <a href="/sitemap-index.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
+      </svg>
+      <span>Sitemap</span>
+    </a>
+  </div>
+</footer>
+  </body></html>

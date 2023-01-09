@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.ico">
+<meta name="generator" content="Astro v1.9.1">
+
+<!-- Primary Meta Tags -->
+<title>Build End to End Typesafe APIs with tRPC</title>
+<meta name="title" content="Build End to End Typesafe APIs with tRPC">
+<meta name="description" content="In this blog post I will show you how to build end-to-end typesafe APIs with tRPC in Next.js project.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shoubhit Dash">
+<meta property="og:url" content="https://faisalfajri.my.id/blog/trpc/">
+<meta property="og:title" content="Build End to End Typesafe APIs with tRPC">
+<meta property="og:description" content="In this blog post I will show you how to build end-to-end typesafe APIs with tRPC in Next.js project.">
+<meta property="og:image" content="https://og.nxl.sh/api/og/?title=Build End to End Typesafe APIs with tRPC&#38;top=May 21, 2022 • 8 min read ">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://faisalfajri.my.id/blog/trpc/">
+<meta property="twitter:title" content="Build End to End Typesafe APIs with tRPC">
+<meta property="twitter:description" content="In this blog post I will show you how to build end-to-end typesafe APIs with tRPC in Next.js project.">
+<meta property="twitter:image" content="https://og.nxl.sh/api/og/?title=Build End to End Typesafe APIs with tRPC&#38;top=May 21, 2022 • 8 min read ">
+
+<!-- Link Tags -->
+<link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Client Side Routing -->
+
+
+  <link rel="stylesheet" href="/assets/blog.c0a6cc77.css" />
+<link rel="stylesheet" href="/assets/ct3a-guestbook.355186fa.css" /><script type="module" src="/hoisted.07a57509.js"></script>
+<script type="module" src="/page.5a6f3db5.js"></script></head>
+
+  <body>
+    <header class="astro-S6FU4HZ2">
+  <!-- <h2 class="text-xl pb-1 flex items-center gap-3">
+    <img
+      src="/images/faisal.webp"
+      alt="faisal's avatar"
+      width={50}
+      height={50}
+      class="rounded-full border-none m-0 font-bold"
+    />
+    Shoubhit Dash
+  </h2> -->
+  <nav class="flex gap-3 astro-S6FU4HZ2">
+    <a href="/" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" class="astro-S6FU4HZ2">
+  Home
+</a>
+    <!-- <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/faq">FAQ</HeaderLink> -->
+    <a href="https://github.com/faisalfjri" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" target="_blank" class="astro-S6FU4HZ2">
+  
+      GitHub
+    
+</a>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z2u8foL" component-url="/EmailSelect.0ec7e108.js" component-export="EmailSelect" renderer-url="/client.077f9624.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;EmailSelect&quot;,&quot;value&quot;:true}" await-children=""><div class="relative inline-block text-left" data-headlessui-state=""><div><button class="text-vitesseGreen hover:underline font-medium underline-offset-3px" id="headlessui-menu-button-:R1:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">Email</button></div></div></astro-island>
+  </nav>
+</header>
+
+    <main>
+      <article>
+        <h1>Build End to End Typesafe APIs with tRPC</h1>
+
+        <div class="pt-4 text-neutral-200">
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path>
+            </svg>
+
+            <time class="text-base">May 21, 2022</time>
+          </div>
+
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+
+            <span class="text-base">8 min read</span>
+          </div>
+        </div>
+        <hr class="border-t border-t-neutral-700 my-8">
+        <blockquote>
+<p>Update: This blog post was written before <a href="https://trpc.io/docs/v10/">tRPC v10</a> was released. You should use tRPC v10 now.</p>
+</blockquote>
+<br/>
+<p><a href="https://trpc.io">tRPC</a> is a tool that provides type-safety between your front and back-ends, hence it makes it <em>really</em> easy to build scalable and robust backends quickly for your Next.js and Node apps. In this article we will be looking at what tRPC is, and how to set it up and use it with Next.js.</p>
+<br/>
+<h2 id="what-is-trpc">What is tRPC?</h2>
+<br/>
+<p>tRPC is a very light library which lets you build fully typesafe APIs without the need of schemas or code generation. It allows sharing of types between the client and server and just imports the types and not the actual server code, so none of the server code is exposed in the frontend. With end-to-end type-safety, you’re able to catch errors between your frontend and backend at compile and build time.</p>
+<br/>
+<p>Currently, the dominant way of making typesafe APIs is using <a href="https://graphql.org/">GraphQL</a> (it’s awesome). Since GraphQL is a query language for APIs, it doesn’t take full advantage of TypeScript, it comes with excess boilerplate code and requires a lot of initial setup.</p>
+<br/>
+<p>If you’re already using TypeScript everywhere, you can share types directly between the client and the server without the need of any code generation.</p>
+<br/>
+<h2 id="installing-trpc-in-nextjs">Installing tRPC in Next.js</h2>
+<br/>
+<p>Lets first create a Next.js project with TypeScript.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npx create-next-app next-with-trpc --ts</span></span></code></pre>
+<p>Let’s now use the recommended folder structure by tRPC. Open the project in your favourite editor, make a <code>src</code> directory and move the <code>pages</code> and <code>styles</code> directory inside it. Your folder structure should look something like this.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#dbd7caee">.</span></span>
+<span class="line"><span style="color:#dbd7caee">├── src</span></span>
+<span class="line"><span style="color:#dbd7caee">│   ├── pages</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── _app.tsx</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── api</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   └── [..]</span></span>
+<span class="line"><span style="color:#dbd7caee">└── [..]</span></span></code></pre>
+<p>Once this is done, let’s install tRPC.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#dbd7caee">npm i @trpc/client @trpc/server @trpc/react @trpc/next zod react-query</span></span></code></pre>
+<p>tRPC is a built on top of <a href="https://react-query.tanstack.com/">react-query</a>, which is a package for fetching, caching, and updating data without the need of any global state. We are also using <a href="https://zod.dev/">zod</a> for schema and input validations. You can also use other validation libraries like <a href="https://github.com/jquense/yup">yup</a>, <a href="https://github.com/ianstormtaylor/superstruct">Superstruct</a>, etc. <a href="https://trpc.io/docs/router">Read more</a>.</p>
+<br/>
+<p>Also make sure that in your <code>tsconfig.json</code>, strict mode is enabled.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// tsconfig.json</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#758575DD">// ...</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965AA">&quot;</span><span style="color:#B8A965">compilerOptions</span><span style="color:#B8A965AA">&quot;</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#758575DD">// ...</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965AA">&quot;</span><span style="color:#B8A965">strict</span><span style="color:#B8A965AA">&quot;</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">true</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>This is so that zod can run correctly, and in general, having strict mode enabled is just good.</p>
+<br/>
+<h2 id="creating-our-server">Creating our server</h2>
+<br/>
+<p>Our tRPC server will be deployed as a <a href="https://nextjs.org/docs/api-routes/introduction">Next.js API route</a>. This code only runs on the server so it doesn’t affect the bundle sizes in any way.</p>
+<br/>
+<h3 id="creating-our-context">Creating our context</h3>
+<br/>
+<p>Let’s first create a directory inside <code>src</code> called <code>server</code>. In here, we need to first create a context. Create a file called <code>context.ts</code> and add the following code to it.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/context.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">CreateNextContextOptions</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@trpc/server/adapters/next</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">inferAsyncReturnType</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@trpc/server</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">async</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">createContext</span><span style="color:#666666">(</span><span style="color:#BD976A">ctxOptions</span><span style="color:#CB7676">?</span><span style="color:#666666">: </span><span style="color:#5DA9A7">CreateNextContextOptions</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const </span><span style="color:#BD976A">req</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctxOptions</span><span style="color:#666666">?.</span><span style="color:#BD976A">req</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const </span><span style="color:#BD976A">res</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">ctxOptions</span><span style="color:#666666">?.</span><span style="color:#BD976A">res</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">req</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#BD976A">res</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">MyContextType</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">inferAsyncReturnType</span><span style="color:#666666">&lt;</span><span style="color:#CB7676">typeof</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">createContext</span><span style="color:#666666">&gt;;</span></span></code></pre>
+<p>This will be available as <code>ctx</code> in all our resolvers which we’ll write in a bit. Right now, we’re just passing the request and response to our routes, but you can add other things like JWT tokens, cookies or even Prisma Client code.</p>
+<br/>
+<h3 id="creating-our-router">Creating our router</h3>
+<br/>
+<p>Now let’s create a file called <code>createRouter.ts</code> in the <code>server</code> directory. We’ll be setting up a simple router. Copy the following code to it.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/createRouter.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">trpc</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@trpc/server</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">MyContextType</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">./context</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">createRouter</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">trpc</span><span style="color:#666666">.</span><span style="color:#80A665">router</span><span style="color:#666666">&lt;</span><span style="color:#5DA9A7">MyContextType</span><span style="color:#666666">&gt;();</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<h3 id="creating-our-routes">Creating our routes</h3>
+<br/>
+<p>Let’s create a new directory inside <code>src/server</code> called <code>routers</code>. Make a file called <code>app.ts</code> inside it. This will be the root route.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/routers/app.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">createRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../createRouter</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">appRouter</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#80A665">createRouter</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">AppRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">typeof</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">appRouter</span><span style="color:#666666">;</span></span></code></pre>
+<p>Now let’s create a router that takes a name as input and returns it to the client. Add a file called <code>name.ts</code>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/routers/name.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">z</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">zod</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">createRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../createRouter</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">nameRouter</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#80A665">createRouter</span><span style="color:#666666">().</span><span style="color:#80A665">query</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">getName</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#B8A965">input</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">z</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">.</span><span style="color:#80A665">object</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#B8A965">name</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#BD976A">z</span><span style="color:#666666">.</span><span style="color:#80A665">string</span><span style="color:#666666">().</span><span style="color:#80A665">nullish</span><span style="color:#666666">(),</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">})</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">.</span><span style="color:#80A665">nullish</span><span style="color:#666666">(),</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#80A665">resolve</span><span style="color:#666666">({</span><span style="color:#CB7676"> </span><span style="color:#BD976A">input</span><span style="color:#CB7676"> </span><span style="color:#666666">})</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span><span style="color:#CB7676"> </span><span style="color:#B8A965">greeting</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#C98A7DAA">`</span><span style="color:#C98A7D">Hello </span><span style="color:#666666">${</span><span style="color:#C98A7D">input</span><span style="color:#666666">?.</span><span style="color:#C98A7D">name </span><span style="color:#CB7676">??</span><span style="color:#C98A7D"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">world</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">}</span><span style="color:#C98A7D">!</span><span style="color:#C98A7DAA">`</span><span style="color:#CB7676"> </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#666666">});</span></span></code></pre>
+<p>Just like GraphQL, tRPC uses queries and mutations. A <code>query</code> is used for fetching data and <code>mutations</code> are used to create, update, and delete data. Here we are creating a query to get a name. The name of our query is <code>getName</code>. Here, <code>input</code> takes the user input which is validated using zod. When this endpoint is requested, the <code>resolve</code> function is called and it returns the <em>hello world</em> greeting. because why not.</p>
+<br/>
+<p>Now let’s merge this route in our root route. Come back to <code>app.ts</code> and add the following code.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/server/routers/app.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">createRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../createRouter</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">nameRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">./name</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">appRouter</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#80A665">createRouter</span><span style="color:#666666">().</span><span style="color:#80A665">merge</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">names.</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">nameRouter</span><span style="color:#666666">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">AppRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">typeof</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">appRouter</span><span style="color:#666666">;</span></span></code></pre>
+<p>That <code>.</code> at the end of <code>names.</code> is intentional for reasons you’ll see soon.</p>
+<br/>
+<h3 id="creating-our-nextjs-api-route">Creating our Next.js API route</h3>
+<br/>
+<p>Let’s create a <code>trpc</code> directory inside <code>src/pages/api</code>. Inside it create a file called <code>[trpc].ts</code>. Just a reminder of our folder structure.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#dbd7caee">.</span></span>
+<span class="line"><span style="color:#dbd7caee">├── src</span></span>
+<span class="line"><span style="color:#dbd7caee">│   ├── pages</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── _app.tsx</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── api</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │   └── trpc</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │       └── [trpc].ts</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   └── [..]</span></span>
+<span class="line"><span style="color:#dbd7caee">│   ├── server</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── routers</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │   ├── app.ts</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │   ├── name.ts</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │   └── [..]</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── context.ts</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   └── createRouter.ts</span></span>
+<span class="line"><span style="color:#dbd7caee">└── [..]</span></span></code></pre>
+<p>Here we will implement our tRPC router. As I had said before, our server will be deployed as a Next.js API route.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/api/trpc/[trpc].ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">createNextApiHandler</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@trpc/server/adapters/next</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">appRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../../../server/routers/app</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">createContext</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../../../server/context</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">createNextApiHandler</span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">router</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">appRouter</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">createContext</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">batching</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">enabled</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">true</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#80A665">onError</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">error</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">})</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">error</span><span style="color:#666666">.</span><span style="color:#BD976A">code</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">===</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">INTERNAL_SERVER_ERROR</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#BD976A">console</span><span style="color:#666666">.</span><span style="color:#80A665">error</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">Something went wrong</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">error</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#666666">});</span></span></code></pre>
+<p>We’re passing it our router, our <code>createConext</code> function, enabling batching and logging errors.</p>
+<br/>
+<p>With that we’re pretty much done with the backend. Let’s now work on our frontend.</p>
+<br/>
+<h3 id="calling-our-trpc-api-routes">Calling our tRPC API routes</h3>
+<br/>
+<p>Let’s now connect our backend with our frontend. Go to <code>src/pages/_app.tsx</code>. Here we are going to configure tRPC and React Query. Copy the following code.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/_app.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">AppType</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">next/dist/shared/lib/utils</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">withTRPC</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@trpc/next</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">AppRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">./api/trpc/[trpc]</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../styles/globals.css</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">MyApp</span><span style="color:#666666">: </span><span style="color:#5DA9A7">AppType</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Component</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">pageProps</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">})</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Component</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{...</span><span style="color:#BD976A">pageProps</span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;;</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">getBaseUrl</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">process</span><span style="color:#666666">.</span><span style="color:#BD976A">browser</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">process</span><span style="color:#666666">.</span><span style="color:#BD976A">env</span><span style="color:#666666">.</span><span style="color:#BD976A">NEXT_PUBLIC_VERCEL_URL</span><span style="color:#666666">)</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">`</span><span style="color:#C98A7D">https://</span><span style="color:#666666">${</span><span style="color:#C98A7D">process</span><span style="color:#666666">.</span><span style="color:#C98A7D">env</span><span style="color:#666666">.</span><span style="color:#C98A7D">NEXT_PUBLIC_VERCEL_URL</span><span style="color:#666666">}</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">`</span><span style="color:#C98A7D">http://localhost:</span><span style="color:#666666">${</span><span style="color:#C98A7D">process</span><span style="color:#666666">.</span><span style="color:#C98A7D">env</span><span style="color:#666666">.</span><span style="color:#C98A7D">PORT </span><span style="color:#CB7676">??</span><span style="color:#C98A7D"> </span><span style="color:#4C9A91">3000</span><span style="color:#666666">}</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">withTRPC</span><span style="color:#666666">&lt;</span><span style="color:#5DA9A7">AppRouter</span><span style="color:#666666">&gt;({</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#80A665">config</span><span style="color:#666666">({</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">ctx</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">})</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">url</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">`</span><span style="color:#666666">${</span><span style="color:#80A665">getBaseUrl</span><span style="color:#666666">()</span><span style="color:#666666">}</span><span style="color:#C98A7D">/api/trpc</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#BD976A">url</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">ssr</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">false</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#666666">})(</span><span style="color:#BD976A">MyApp</span><span style="color:#666666">);</span></span></code></pre>
+<p>We’re also setting <code>ssr</code> (Server Side Rendering) to be false for now.</p>
+<br/>
+<p>Next, create a <code>utils</code> directory inside <code>src</code>. Inside <code>utils</code>, create a file called <code>trpc.ts</code>. Folder structure for reference:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#dbd7caee">.</span></span>
+<span class="line"><span style="color:#dbd7caee">├── src</span></span>
+<span class="line"><span style="color:#dbd7caee">│   ├── pages</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── _app.tsx</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── api</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │   └── trpc</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │       └── [trpc].ts</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   └── [..]</span></span>
+<span class="line"><span style="color:#dbd7caee">│   ├── server</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── routers</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │   ├── app.ts</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │   ├── name.ts</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   │   └── [..]</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   ├── context.ts</span></span>
+<span class="line"><span style="color:#dbd7caee">│   │   └── createRouter.ts</span></span>
+<span class="line"><span style="color:#dbd7caee">|   └── utils</span></span>
+<span class="line"><span style="color:#dbd7caee">│       └── trpc.ts</span></span>
+<span class="line"><span style="color:#dbd7caee">└── [..]</span></span></code></pre>
+<p>Here we’re going to create a hook to use tRPC on the client.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/utils/trpc.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">createReactQueryHooks</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@trpc/react</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">inferProcedureOutput</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@trpc/server</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">AppRouter</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../server/routers/app</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#CB7676"> const </span><span style="color:#BD976A">trpc</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#80A665">createReactQueryHooks</span><span style="color:#666666">&lt;</span><span style="color:#5DA9A7">AppRouter</span><span style="color:#666666">&gt;();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">inferQueryOutput</span><span style="color:#666666">&lt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#5DA9A7">TRouteKey</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">extends</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">keyof</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">AppRouter</span><span style="color:#666666">[</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">_def</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">][</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">queries</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">]</span></span>
+<span class="line"><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#5DA9A7">inferProcedureOutput</span><span style="color:#666666">&lt;</span><span style="color:#5DA9A7">AppRouter</span><span style="color:#666666">[</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">_def</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">][</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">queries</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">][</span><span style="color:#5DA9A7">TRouteKey</span><span style="color:#666666">]&gt;;</span></span></code></pre>
+<p>This hook is strongly typed using our API type signature. This is what enables the end-to-end typesafety in our code. For example, if we change a router’s name in the backend, it will show an error in the frontend where we’re calling the route. It allows us to call our backend and get fully typed inputs and outputs from it. It also gives us wonderful autocomplete.</p>
+<br/>
+<p>Let’s now actually use our query that we defined earlier. Go to the index page and instead of copy pasting this code block, type it yourself to experience the magic of tRPC. The autocomplete is just crazy.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// src/pages/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">trpc</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">../utils/trpc</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Name</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const </span><span style="color:#BD976A">nameQuery</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#BD976A">trpc</span><span style="color:#666666">.</span><span style="color:#80A665">useQuery</span><span style="color:#666666">([</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">names.getName</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span><span style="color:#CB7676"> </span><span style="color:#B8A965">name</span><span style="color:#666666">:</span><span style="color:#CB7676"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">nexxel</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#CB7676"> </span><span style="color:#666666">}]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#CB7676">&lt;&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">{</span><span style="color:#BD976A">nameQuery</span><span style="color:#DBD7CAEE">.</span><span style="color:#BD976A">data</span><span style="color:#DBD7CAEE"> ? (</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        &lt;</span><span style="color:#BD976A">h1</span><span style="color:#DBD7CAEE">&gt;</span><span style="color:#666666">{</span><span style="color:#BD976A">nameQuery</span><span style="color:#DBD7CAEE">.</span><span style="color:#BD976A">data</span><span style="color:#DBD7CAEE">.</span><span style="color:#BD976A">greeting</span><span style="color:#666666">}</span><span style="color:#DBD7CAEE">&lt;/</span><span style="color:#BD976A">h1</span><span style="color:#DBD7CAEE">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      ) : (</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        &lt;</span><span style="color:#BD976A">span</span><span style="color:#DBD7CAEE">&gt;</span><span style="color:#BD976A">Loading</span><span style="color:#DBD7CAEE">...&lt;/</span><span style="color:#BD976A">span</span><span style="color:#DBD7CAEE">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      )</span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#CB7676">&lt;/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>Did you see the magic? In case you’re lazy and just copied the code, I got you covered ;) Look at this 😱.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/Code_XJsLtO8b8P.gif" alt="autocomplete"/></p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/Code_3aJUBQVDTI.gif" alt="autocomplete"/></p>
+<p>The autocomplete is soo good. And it catches any kind of type errors you make without the need of declaring any types or interfaces manually. It’s crazy good.</p>
+<br/>
+<p>Now, start the dev server and see the greeting on the screen!</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_HKwxL4t2a7.gif" alt="loading"/></p>
+<p>Notice the loading state. This is because we set <code>ssr</code> to false when we configured tRPC in <code>_app.tsx</code>. So it’s being client side rendered. Go to <code>src/pages/_app.tsx</code> and set <code>ssr</code> to true now and see what happens.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_eosogl59Pz.gif" alt="not loading"/></p>
+<p>Now there is no loading state because the data is being fetched server side and then it is being rendered. You can use whatever suits your needs.</p>
+<br/>
+<h2 id="conclusion">Conclusion</h2>
+<br/>
+<p>In this article, we looked at what tRPC is and how to use it with a Next.JS app. tRPC makes building typesafe APIs incredibly easy and improves the DX by a million times. You can use it with not only Next.js but also React, Node and there’s adapters being developed for Vue and Svelte as well. I recommend using it for pretty much any project you make now. For more information checkout the <a href="https://trpc.io">tRPC docs</a>.</p>
+<br/>
+<p>Code: <a href="https://github.com/nexxeln/trpc-nextjs">nexxeln/trpc-nextjs</a></p>
+<br/>
+<p>Thank you for reading.</p>
+      </article>
+    </main>
+    <hr class="border-t-2 border-t-neutral-800 mt-24">
+
+<footer class="p-4 text-neutral-400 text-center">
+  <p class="text-neutral-400">
+    This website doesn't track you. Have a nice day.
+  </p>
+  <div class="flex gap-6 items-center justify-center text-sm pt-2">
+    <a href="/rss.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+      </svg>
+      <span>RSS</span>
+    </a>
+    <a href="/sitemap-index.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
+      </svg>
+      <span>Sitemap</span>
+    </a>
+  </div>
+</footer>
+  </body></html>

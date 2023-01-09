@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.ico">
+<meta name="generator" content="Astro v1.9.1">
+
+<!-- Primary Meta Tags -->
+<title>Expressive Code with Pattern Matching</title>
+<meta name="title" content="Expressive Code with Pattern Matching">
+<meta name="description" content="Elevate your code by writing declarative, and easy-to-read code with pattern matching.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shoubhit Dash">
+<meta property="og:url" content="https://faisalfajri.my.id/blog/pattern-matching/">
+<meta property="og:title" content="Expressive Code with Pattern Matching">
+<meta property="og:description" content="Elevate your code by writing declarative, and easy-to-read code with pattern matching.">
+<meta property="og:image" content="https://og.nxl.sh/api/og/?title=Expressive Code with Pattern Matching&#38;top=December 29, 2022 • 10 min read ">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://faisalfajri.my.id/blog/pattern-matching/">
+<meta property="twitter:title" content="Expressive Code with Pattern Matching">
+<meta property="twitter:description" content="Elevate your code by writing declarative, and easy-to-read code with pattern matching.">
+<meta property="twitter:image" content="https://og.nxl.sh/api/og/?title=Expressive Code with Pattern Matching&#38;top=December 29, 2022 • 10 min read ">
+
+<!-- Link Tags -->
+<link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Client Side Routing -->
+
+
+  <link rel="stylesheet" href="/assets/blog.c0a6cc77.css" />
+<link rel="stylesheet" href="/assets/ct3a-guestbook.355186fa.css" /><script type="module" src="/hoisted.07a57509.js"></script>
+<script type="module" src="/page.5a6f3db5.js"></script></head>
+
+  <body>
+    <header class="astro-S6FU4HZ2">
+  <!-- <h2 class="text-xl pb-1 flex items-center gap-3">
+    <img
+      src="/images/faisal.webp"
+      alt="faisal's avatar"
+      width={50}
+      height={50}
+      class="rounded-full border-none m-0 font-bold"
+    />
+    Shoubhit Dash
+  </h2> -->
+  <nav class="flex gap-3 astro-S6FU4HZ2">
+    <a href="/" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" class="astro-S6FU4HZ2">
+  Home
+</a>
+    <!-- <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/faq">FAQ</HeaderLink> -->
+    <a href="https://github.com/faisalfjri" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" target="_blank" class="astro-S6FU4HZ2">
+  
+      GitHub
+    
+</a>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z2u8foL" component-url="/EmailSelect.0ec7e108.js" component-export="EmailSelect" renderer-url="/client.077f9624.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;EmailSelect&quot;,&quot;value&quot;:true}" await-children=""><div class="relative inline-block text-left" data-headlessui-state=""><div><button class="text-vitesseGreen hover:underline font-medium underline-offset-3px" id="headlessui-menu-button-:R1:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">Email</button></div></div></astro-island>
+  </nav>
+</header>
+
+    <main>
+      <article>
+        <h1>Expressive Code with Pattern Matching</h1>
+
+        <div class="pt-4 text-neutral-200">
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path>
+            </svg>
+
+            <time class="text-base">December 29, 2022</time>
+          </div>
+
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+
+            <span class="text-base">10 min read</span>
+          </div>
+        </div>
+        <hr class="border-t border-t-neutral-700 my-8">
+        <p>Have you ever found yourself writing long, cumbersome if-else chains in your code, just to handle a few different cases? If so, you’ll want to learn about pattern matching. In this post, we’ll explore the basics of pattern matching and how it can help you write cleaner, more concise code. We’ll also look at some examples of how pattern matching can be used to solve common problems in programming.</p>
+<br/>
+<h2 id="what-is-pattern-matching">What is Pattern Matching?</h2>
+<br/>
+<p>Pattern matching is a mechanism for checking a value against a pattern and, based on the match, performing some kind of action. It is a fundamental feature of many programming languages, such as Haskell, Rust and ML languages including OCaml.</p>
+<br/>
+<p>The basic idea behind pattern matching is simple: you define a pattern and provide some code to be executed if the pattern matches. All of the code examples in this post are in OCaml syntax because it is very readable and easy to understand. Consider the following example:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#79B8FF;font-style:italic">(* basic.ml *)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">greet</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">name</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">match</span><span style="color:#DBD7CAEE"> name </span><span style="color:#4D9375">with</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&quot;nexxel&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> print_string </span><span style="color:#C98A7D">&quot;Hi, nexxel!&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&quot;Ludwig&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> print_string </span><span style="color:#C98A7D">&quot;Crazy how you look exactly like Mogul Mail&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#79B8FF;font-style:italic">_</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> print_string </span><span style="color:#C98A7D">&quot;Who are you?&quot;</span></span></code></pre>
+<p>Here we have defined a function called <code>greet</code> that takes a single argument<code>name</code>. The <code>match</code> keyword is used to define a pattern match, and the <code>with</code> keyword is used to specify the different patterns to be matched.</p>
+<br/>
+<p>The first pattern is <code>&quot;nexxel&quot; -&gt; print_string &quot;Hi, nexxel!&quot;</code>, which means that if <code>name</code> is equal to <code>&quot;nexxel&quot;</code>, it will execute the print statement. Similarly, if <code>name</code> is equal to <code>&quot;Ludwig&quot;</code> it will execute the respective print statement. The last pattern is <code>_ -&gt; print_string &quot;Who are you?&quot;</code>, which means that if <code>name</code> is anything other than “nexxel” or “Ludwig”, it will print “Who are you?“.</p>
+<br/>
+<p>This is a very basic example of pattern matching, but it illustrates the core concept: you define a pattern and provide some code to be executed if the pattern matches. You might think how is this better than using an if-else statement? We’ll see how pattern matching helps in simplifying complex conditional logic with less mental effort.</p>
+<br/>
+<h2 id="why-use-pattern-matching">Why Use Pattern Matching?</h2>
+<br/>
+<p>Pattern matching allows you to express complex conditionals in a concise and declarative way. Let’s look at another example which is a function to calculate the <a href="https://en.wikipedia.org/wiki/Factorial">factorial</a> of a number.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#79B8FF;font-style:italic">(* factorial.ml *)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#C4704F">rec</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">factorial</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">n</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">match</span><span style="color:#DBD7CAEE"> n </span><span style="color:#4D9375">with</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">0</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">1</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">n</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> n </span><span style="color:#C4704F">*</span><span style="color:#DBD7CAEE"> factorial </span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">n </span><span style="color:#C4704F">-</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">1</span><span style="color:#666666">)</span></span></code></pre>
+<p>This code uses a recursive function (<code>rec</code> is used to define recursive functions) and pattern matching to calculate the factorial of a given number. The pattern <code>0</code> is matched if <code>n</code> is equal to <code>0</code>, in which case the function returns <code>1</code>. Otherwise, the pattern <code>n</code> is matched, and the function calls itself with <code>n - 1</code> as the argument.</p>
+<br/>
+<p>This code is much simpler and easier to understand than an equivalent implementation using an imperative loop. In addition, it is more declarative, as it specifies what should be done rather than how it should be done. Here’s an imperative implementation of the same function in Python:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD"># factorial.py</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">def</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">factorial</span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">n</span><span style="color:#666666">):</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#CB7676">def</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">loop</span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">i</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> acc</span><span style="color:#666666">):</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> i </span><span style="color:#CB7676">&gt;</span><span style="color:#DBD7CAEE"> n</span><span style="color:#666666">:</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> acc</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#4D9375">else</span><span style="color:#666666">:</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> loop</span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">i </span><span style="color:#CB7676">+</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">1</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> acc </span><span style="color:#CB7676">*</span><span style="color:#DBD7CAEE"> i</span><span style="color:#666666">)</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> loop</span><span style="color:#666666">(</span><span style="color:#4C9A91">1</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">1</span><span style="color:#666666">)</span></span></code></pre>
+<p>The declarative way of doing things is much more concise and easier to reason. Let’s explore some more examples to see how pattern matching is used in practice.</p>
+<br/>
+<h2 id="pattern-matching-in-practice">Pattern Matching in Practice</h2>
+<br/>
+<h3 id="conditionals">Conditionals</h3>
+<br/>
+<p>We already saw the factorial example, but let’s take another example to calculate the nth term of the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#79B8FF;font-style:italic">(* fibonacci.ml *)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#C4704F">rec</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">fib</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">n</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">match</span><span style="color:#DBD7CAEE"> n </span><span style="color:#4D9375">with</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">0</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">0</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">1</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">1</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">n</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> fib </span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">n </span><span style="color:#C4704F">-</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">1</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#C4704F">+</span><span style="color:#DBD7CAEE"> fib </span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">n </span><span style="color:#C4704F">-</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">2</span><span style="color:#666666">)</span></span></code></pre>
+<p>Here, the <code>fib</code> function uses pattern matching to define three cases:</p>
+<ul>
+<li>If <code>n</code> is equal to <code>0</code>, it returns <code>0</code>.</li>
+<li>If <code>n</code> is equal to <code>1</code>, it returns <code>1</code>.</li>
+<li>If <code>n</code> is neither <code>0</code> nor <code>1</code>, the function calls itself with <code>n - 1</code> and <code>n - 2</code> as arguments and returns the sum of the two results.</li>
+</ul>
+<br/>
+<p>Here’s an imperative implementation of the same function in TypeScript:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// fibonacci.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const </span><span style="color:#80A665">fib</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">n</span><span style="color:#666666">: </span><span style="color:#5DA9A7">number</span><span style="color:#666666">):</span><span style="color:#CB7676"> </span><span style="color:#5DA9A7">number</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#4D9375">if</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">n</span><span style="color:#CB7676"> === </span><span style="color:#4C9A91">0</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#4C9A91">0</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">}</span><span style="color:#CB7676"> </span><span style="color:#4D9375">else</span><span style="color:#CB7676"> </span><span style="color:#4D9375">if</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">n</span><span style="color:#CB7676"> === </span><span style="color:#4C9A91">1</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#4C9A91">1</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">}</span><span style="color:#CB7676"> </span><span style="color:#4D9375">else</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    let </span><span style="color:#BD976A">a</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#4C9A91">0</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#CB7676">    let </span><span style="color:#BD976A">b</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#4C9A91">1</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">for</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#CB7676">let </span><span style="color:#BD976A">i</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#4C9A91">2</span><span style="color:#666666">;</span><span style="color:#CB7676"> </span><span style="color:#BD976A">i</span><span style="color:#CB7676"> &lt;= </span><span style="color:#BD976A">n</span><span style="color:#666666">;</span><span style="color:#CB7676"> </span><span style="color:#BD976A">i</span><span style="color:#CB7676">++</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">      </span><span style="color:#666666">[</span><span style="color:#BD976A">a</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">b</span><span style="color:#666666">]</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#666666">[</span><span style="color:#BD976A">b</span><span style="color:#666666">,</span><span style="color:#CB7676"> </span><span style="color:#BD976A">a</span><span style="color:#CB7676"> + </span><span style="color:#BD976A">b</span><span style="color:#666666">];</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#BD976A">b</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>If you look at the code, you’ll see that it is much more verbose than the declarative version. It also uses mutable variables, which can be error-prone. Moreover, it is not very easy to understand what the code is doing. Although this can be improved and be written in a declarative way using recursion.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// fibonacci.ts</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">const </span><span style="color:#80A665">fib</span><span style="color:#CB7676"> </span><span style="color:#666666">=</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">n</span><span style="color:#666666">: </span><span style="color:#5DA9A7">number</span><span style="color:#666666">):</span><span style="color:#CB7676"> </span><span style="color:#5DA9A7">number</span><span style="color:#CB7676"> </span><span style="color:#666666">=&gt;</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#4D9375">if</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">n</span><span style="color:#CB7676"> === </span><span style="color:#4C9A91">0</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#4C9A91">0</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">}</span><span style="color:#CB7676"> </span><span style="color:#4D9375">else</span><span style="color:#CB7676"> </span><span style="color:#4D9375">if</span><span style="color:#CB7676"> </span><span style="color:#666666">(</span><span style="color:#BD976A">n</span><span style="color:#CB7676"> === </span><span style="color:#4C9A91">1</span><span style="color:#666666">)</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#4C9A91">1</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">}</span><span style="color:#CB7676"> </span><span style="color:#4D9375">else</span><span style="color:#CB7676"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#CB7676">    </span><span style="color:#4D9375">return</span><span style="color:#CB7676"> </span><span style="color:#80A665">fib</span><span style="color:#666666">(</span><span style="color:#BD976A">n</span><span style="color:#CB7676"> - </span><span style="color:#4C9A91">1</span><span style="color:#666666">)</span><span style="color:#CB7676"> + </span><span style="color:#80A665">fib</span><span style="color:#666666">(</span><span style="color:#BD976A">n</span><span style="color:#CB7676"> - </span><span style="color:#4C9A91">2</span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#CB7676">  </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>This version is much more readable and concise, but it is still not as concise and satisfying to read and write as the pattern matching version.</p>
+<br/>
+<h3 id="usage-with-algebraic-data-types">Usage with Algebraic Data Types</h3>
+<br/>
+<p>Pattern matching is also used with <a href="https://en.wikipedia.org/wiki/Algebraic_data_type">algebraic data types</a>, which are composite data types that are built up from simpler data types using a set of constructors.. Consider the following example to represent a <a href="https://en.wikipedia.org/wiki/Binary_tree">binary tree</a>:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#79B8FF;font-style:italic">(* binary_tree.ml *)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">tree</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Leaf</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Node</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">of</span><span style="color:#DBD7CAEE"> int </span><span style="color:#C4704F">*</span><span style="color:#DBD7CAEE"> tree </span><span style="color:#C4704F">*</span><span style="color:#DBD7CAEE"> tree</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">binary_tree</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Node</span><span style="color:#666666">(</span><span style="color:#4C9A91">1</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Node</span><span style="color:#666666">(</span><span style="color:#4C9A91">2</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Leaf</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Leaf</span><span style="color:#666666">)</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Node</span><span style="color:#666666">(</span><span style="color:#4C9A91">3</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Leaf</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Leaf</span><span style="color:#666666">))</span></span></code></pre>
+<p>The <code>tree</code> type is an ADT, where the value of type <code>tree</code> can either be a <code>Leaf</code> or <code>Node</code>. This ADT has two constructors: <code>Leaf</code> and <code>Node</code>. The <code>Leaf</code> constructor takes no arguments and represents a leaf node, i.e. a node with no subtrees. The <code>Node</code> constructor takes three arguments: an integer value, and two subtrees.</p>
+<br/>
+<p>Now that we have defined the <code>tree</code> ADT, we can use it to create a binary tree. The <code>binary_tree</code> variable is a <code>tree</code> value that represents the following binary tree:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#dbd7caee">    1</span></span>
+<span class="line"><span style="color:#dbd7caee">   / \</span></span>
+<span class="line"><span style="color:#dbd7caee">  2   3</span></span>
+<span class="line"><span style="color:#dbd7caee"> / \ / \</span></span></code></pre>
+<p>Now we can use pattern matching to deconstruct the <code>tree</code> value and perform different actions based on its structure. For example, we can write a function that sums the values of all leaf nodes in a tree:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#79B8FF;font-style:italic">(* binary_tree.ml *)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#C4704F">rec</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">sum_tree</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">tree</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">match</span><span style="color:#DBD7CAEE"> tree </span><span style="color:#4D9375">with</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Leaf</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">0</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Node</span><span style="color:#666666">(</span><span style="color:#C98A7D">value</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">left</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">right</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> value </span><span style="color:#C4704F">+</span><span style="color:#DBD7CAEE"> sum_tree left </span><span style="color:#C4704F">+</span><span style="color:#DBD7CAEE"> sum_tree right</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-style:italic">(* let () = print_int (sum_tree binary_tree) *)</span></span>
+<span class="line"><span style="color:#79B8FF;font-style:italic">(* 6 *)</span></span></code></pre>
+<p>The <code>sum_tree</code> function takes a <code>tree</code> value as an argument and uses pattern matching to deconstruct it. If the tree is a <code>Leaf</code>, it returns <code>0</code>. Otherwise, it returns the value of the node plus the sum of the values of the left and right subtrees.</p>
+<br/>
+<p>You can see the benefits of using pattern matching here. The code is very concise and much easier to understand because it reads like what you would say in plain English.</p>
+<br/>
+<h3 id="navigating-complex-data-structures">Navigating Complex Data Structures</h3>
+<br/>
+<p>Pattern matching allows us to navigate complex data structures in a very flexbile and concise way without a lot of mental overhead. Consider the following <a href="https://en.wikipedia.org/wiki/Tagged_union">variant type</a> to represent a <a href="https://en.wikipedia.org/wiki/Polynomial">polynomial</a>:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#79B8FF;font-style:italic">(* polynomial.ml *)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&#39;</span><span style="color:#4D9375">a</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">polynomial</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Zero</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Const</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">of</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&#39;</span><span style="color:#4D9375">a</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Var</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Sum</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">of</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&#39;</span><span style="color:#4D9375">a</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">polynomial</span><span style="color:#DBD7CAEE"> </span><span style="color:#C4704F">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&#39;</span><span style="color:#4D9375">a</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">polynomial</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Prod</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">of</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&#39;</span><span style="color:#4D9375">a</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">polynomial</span><span style="color:#DBD7CAEE"> </span><span style="color:#C4704F">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&#39;</span><span style="color:#4D9375">a</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">polynomial</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Power</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">of</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&#39;</span><span style="color:#4D9375">a</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">polynomial</span><span style="color:#DBD7CAEE"> </span><span style="color:#C4704F">*</span><span style="color:#DBD7CAEE"> int</span></span></code></pre>
+<p>The <code>polynomial</code> type is a generic type that takes in a type parameter <code>&#39;a</code>. It is a placeholder for a type that will be specified later when the type is used. <code>polynomial</code> and has six variants. The <code>Zero</code> variant represents the polynomial <code>0</code>, the <code>Const</code> variant represents a constant polynomia, the <code>Var</code> variant represents the polynomial <code>x</code>. The <code>Sum</code> variant represents the sum of two polynomials. The <code>Prod</code> variant represents the product of two polynomials. The <code>Power</code> variant represents the polynomial raised to a power.</p>
+<br/>
+<p>We can now use pattern matching to define a function that evaluates a polynomial at a given value of <code>x</code>:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#79B8FF;font-style:italic">(* polynomial.ml *)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-style:italic">(* `function` is just syntatic sugar for `match x with` *)</span></span>
+<span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#C4704F">rec</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">eval</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">x</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Zero</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">0</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Const</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">c</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> c</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Var</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> x</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Sum</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#C98A7D">p1</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">p2</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> eval x p1 </span><span style="color:#C4704F">+</span><span style="color:#DBD7CAEE"> eval x p2</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Prod</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#C98A7D">p1</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">p2</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> eval x p1 </span><span style="color:#C4704F">*</span><span style="color:#DBD7CAEE"> eval x p2</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Power</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#C98A7D">p</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">n</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> int_of_float </span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">float_of_int </span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">eval x p</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#C4704F">**</span><span style="color:#DBD7CAEE"> float_of_int n</span><span style="color:#666666">)</span></span></code></pre>
+<p>Here, <code>eval</code> is a recursive function which uses pattern matching to define the cases for the different variants of the <code>polynomial</code> type.</p>
+<br/>
+<ul>
+<li>If the polynomial is <code>Zero</code>, the function returns <code>0</code>.</li>
+<li>If the polynomial is <code>Const</code>, the function returns the constant value.</li>
+<li>If the polynomial is <code>Var</code>, the function returns the value of <code>x</code>.</li>
+<li>If the polynomial is an <code>Sum</code>, the function deconstructs the polynomial into its two operands and evaluates them using the <code>eval</code> function. It then returns the sum of the two results.</li>
+<li>If the polynomial is a <code>Prod</code>, the function again deconstructs the polynomial, evaluates them and returns the product of the two results.</li>
+<li>If the polynomial is a <code>Power</code>, the function deconstructs the polynomial into its base and exponent, evaluates the base and returns the base raised to the power of the exponent.</li>
+</ul>
+<br/>
+<p>This allows us to easily calculate the value of a polynomial of any complexity at a given value of x by destructuring it into its constituent parts and recursively evaluating each part. For example, here’s how we can use the <code>eval</code> function to evaluate the polynomial <code>x^2 + 2x + 1</code> at <code>x = 2</code>:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#79B8FF;font-style:italic">(* x^2 + 2x + 1 *)</span></span>
+<span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">p</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Sum</span><span style="color:#666666">(</span><span style="color:#BD976A">Power</span><span style="color:#666666">(</span><span style="color:#BD976A">Var</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">2</span><span style="color:#666666">)</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Sum</span><span style="color:#666666">(</span><span style="color:#BD976A">Prod</span><span style="color:#666666">(</span><span style="color:#BD976A">Const</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">2</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Var</span><span style="color:#666666">)</span><span style="color:#C4704F">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Const</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">1</span><span style="color:#666666">))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">result</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span><span style="color:#DBD7CAEE"> eval </span><span style="color:#4C9A91">2</span><span style="color:#DBD7CAEE"> p</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-style:italic">(* let () = print_int result *)</span></span>
+<span class="line"><span style="color:#79B8FF;font-style:italic">(* 9 *)</span></span></code></pre>
+<p>Another benefit to use pattern matching in complex structures like this is that the compiler will make sure your pattern matching is exhaustive so you won’t ever miss a case.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/this-vegetable.is-from.space/Alacritty-v0.10.0-portable_(1)_KQtv19ft64.gif" alt="Compiler making sure pattern matching is exhaustive"/></p>
+<h3 id="handling-errors">Handling Errors</h3>
+<br/>
+<p>Pattern matching can also be a useful technique for error handling. Consider the following to divide two integers:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">x</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">y</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> y </span><span style="color:#C4704F">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">0</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">then</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Error</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">&quot;Division by zero&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">else</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Ok</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">x </span><span style="color:#C4704F">/</span><span style="color:#DBD7CAEE"> y</span><span style="color:#666666">)</span></span></code></pre>
+<p>The <code>div</code> function takes two integers as arguments and returns an <code>int</code> value wrapped in an result type. If the second argument is <code>0</code>, the function returns an <code>Error</code>. Otherwise, it returns <code>Ok (x / y)</code>. Now we can use pattern matching to handle the result of the <code>div</code> function:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#4D9375">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">let</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">result</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">=</span><span style="color:#DBD7CAEE"> div </span><span style="color:#4C9A91">10</span><span style="color:#DBD7CAEE"> </span><span style="color:#4C9A91">0</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">in</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">match</span><span style="color:#DBD7CAEE"> result </span><span style="color:#4D9375">with</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Ok</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">x</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> print_endline </span><span style="color:#666666">(</span><span style="color:#DBD7CAEE">string_of_int x</span><span style="color:#666666">)</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">|</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Error</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">msg</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">-&gt;</span><span style="color:#DBD7CAEE"> print_endline msg</span></span></code></pre>
+<p>This is a pretty simple example. In OCaml there are also option types which have two variants: <code>Some</code> and <code>None</code>. The <code>Some</code> variant is used to wrap a value and the <code>None</code> variant is used to represent the absence of a values.</p>
+<br/>
+<h2 id="conclusion">Conclusion</h2>
+<br/>
+<p>In conclusion, pattern matching is a versatile and useful technique that can simplify and improve many aspects of your code. Whether its a simple script or a complex application, pattern matching can help you write code that is more correct, concise, expressive, and maintainable.</p>
+<br/>
+<p>Thanks for reading!</p>
+<br/>
+<h2 id="credits">Credits</h2>
+<br/>
+<p>Thank you to the following people for proofreading and giving ideas for this article:</p>
+<br/>
+<ul>
+<li><a href="https://twitter.com/Zain_Wania">Zain Wania</a></li>
+<li><a href="https://www.brendonovich.dev/">Brendan Allan</a></li>
+<li><a href="https://github.com/yxshv">Yash</a></li>
+<li><a href="https://github.com/nsttt">Néstor</a></li>
+</ul>
+<br/>
+<h2 id="resources">Resources</h2>
+<br/>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Pattern_matching">Pattern Matching - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Algebraic_data_type">Algebraic Data Types - Wikipedia</a></li>
+</ul>
+      </article>
+    </main>
+    <hr class="border-t-2 border-t-neutral-800 mt-24">
+
+<footer class="p-4 text-neutral-400 text-center">
+  <p class="text-neutral-400">
+    This website doesn't track you. Have a nice day.
+  </p>
+  <div class="flex gap-6 items-center justify-center text-sm pt-2">
+    <a href="/rss.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+      </svg>
+      <span>RSS</span>
+    </a>
+    <a href="/sitemap-index.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
+      </svg>
+      <span>Sitemap</span>
+    </a>
+  </div>
+</footer>
+  </body></html>

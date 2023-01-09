@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.ico">
+<meta name="generator" content="Astro v1.9.1">
+
+<!-- Primary Meta Tags -->
+<title>Make and Deploy Your Own Blog in under 30 Mins</title>
+<meta name="title" content="Make and Deploy Your Own Blog in under 30 Mins">
+<meta name="description" content="Make and deploy your own blog in under 30 mins using Remix, MDX and Tailwind.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shoubhit Dash">
+<meta property="og:url" content="https://faisalfajri.my.id/blog/remix-blog/">
+<meta property="og:title" content="Make and Deploy Your Own Blog in under 30 Mins">
+<meta property="og:description" content="Make and deploy your own blog in under 30 mins using Remix, MDX and Tailwind.">
+<meta property="og:image" content="https://og.nxl.sh/api/og/?title=Make and Deploy Your Own Blog in under 30 Mins&#38;top=April 13, 2022 • 13 min read ">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://faisalfajri.my.id/blog/remix-blog/">
+<meta property="twitter:title" content="Make and Deploy Your Own Blog in under 30 Mins">
+<meta property="twitter:description" content="Make and deploy your own blog in under 30 mins using Remix, MDX and Tailwind.">
+<meta property="twitter:image" content="https://og.nxl.sh/api/og/?title=Make and Deploy Your Own Blog in under 30 Mins&#38;top=April 13, 2022 • 13 min read ">
+
+<!-- Link Tags -->
+<link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Client Side Routing -->
+
+
+  <link rel="stylesheet" href="/assets/blog.c0a6cc77.css" />
+<link rel="stylesheet" href="/assets/ct3a-guestbook.355186fa.css" /><script type="module" src="/hoisted.07a57509.js"></script>
+<script type="module" src="/page.5a6f3db5.js"></script></head>
+
+  <body>
+    <header class="astro-S6FU4HZ2">
+  <!-- <h2 class="text-xl pb-1 flex items-center gap-3">
+    <img
+      src="/images/faisal.webp"
+      alt="faisal's avatar"
+      width={50}
+      height={50}
+      class="rounded-full border-none m-0 font-bold"
+    />
+    Shoubhit Dash
+  </h2> -->
+  <nav class="flex gap-3 astro-S6FU4HZ2">
+    <a href="/" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" class="astro-S6FU4HZ2">
+  Home
+</a>
+    <!-- <HeaderLink href="/blog">Blog</HeaderLink>
+    <HeaderLink href="/faq">FAQ</HeaderLink> -->
+    <a href="https://github.com/faisalfjri" rel="prefetch" class="text-vitesseGreen underline-offset-3px font-medium" target="_blank" class="astro-S6FU4HZ2">
+  
+      GitHub
+    
+</a>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).visible=(s,c,n)=>{const r=async()=>{await(await s())()};let i=new IntersectionObserver(e=>{for(const t of e)if(!!t.isIntersecting){i.disconnect(),r();break}});for(let e=0;e<n.children.length;e++){const t=n.children[e];i.observe(t)}},window.dispatchEvent(new Event("astro:visible"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z2u8foL" component-url="/EmailSelect.0ec7e108.js" component-export="EmailSelect" renderer-url="/client.077f9624.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;EmailSelect&quot;,&quot;value&quot;:true}" await-children=""><div class="relative inline-block text-left" data-headlessui-state=""><div><button class="text-vitesseGreen hover:underline font-medium underline-offset-3px" id="headlessui-menu-button-:R1:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">Email</button></div></div></astro-island>
+  </nav>
+</header>
+
+    <main>
+      <article>
+        <h1>Make and Deploy Your Own Blog in under 30 Mins</h1>
+
+        <div class="pt-4 text-neutral-200">
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path>
+            </svg>
+
+            <time class="text-base">April 13, 2022</time>
+          </div>
+
+          <div class="flex gap-x-2 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+
+            <span class="text-base">13 min read</span>
+          </div>
+        </div>
+        <hr class="border-t border-t-neutral-700 my-8">
+        <p>Yes you read that right. Under 30 minutes. Let’s not waste time and get right into it.</p>
+<br/>
+<h2 id="tech-stack">Tech Stack</h2>
+<br/>
+<p>First let’s look at the stack that we’re going to be using:</p>
+<br/>
+<ul>
+<li><a href="https://remix.run">Remix</a> which is a full stack React framework.</li>
+<li><a href="https://tailwindcss.com">Tailwind CSS</a> for styling.</li>
+<li><a href="https://mdxjs.com">MDX</a> for writing the blog posts.</li>
+<li><a href="https://vercel.com">Vercel</a> to deploy our website.</li>
+</ul>
+<br/>
+<h2 id="prerequisites">Prerequisites</h2>
+<br/>
+<ul>
+<li>Good understanding of React.</li>
+<li>Writing and formatting with Markdown</li>
+</ul>
+<br/>
+<h2 id="coding">Coding</h2>
+<br/>
+<p>Alright let’s start coding! First, navigate to your projects directory and bootstrap
+a Remix project using</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npx create-remix@latest</span></span></code></pre>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> Where would you like to create your app</span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> ./remix-blog</span></span>
+<span class="line"><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> What </span><span style="color:#B8A965">type</span><span style="color:#DBD7CAEE"> of app </span><span style="color:#4D9375">do</span><span style="color:#DBD7CAEE"> you want to create</span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> Just the basics</span></span>
+<span class="line"><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> Where </span><span style="color:#4D9375">do</span><span style="color:#DBD7CAEE"> you want to deploy</span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> Choose Remix </span><span style="color:#4D9375">if</span><span style="color:#DBD7CAEE"> you</span><span style="color:#C98A7DAA">&#39;</span><span style="color:#C98A7D">re unsure; it</span><span style="color:#C98A7DAA">&#39;</span><span style="color:#DBD7CAEE">s easy to change deployment targets. Vercel</span></span>
+<span class="line"><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> TypeScript or JavaScript</span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> TypeScript</span></span>
+<span class="line"><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> Do you want me to run </span><span style="color:#C98A7DAA">`</span><span style="color:#C98A7D">npm install</span><span style="color:#C98A7DAA">`</span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> Yes</span></span></code></pre>
+<p>You can name it whatever you want, I just used <code>remix-blog</code>. You can select JavaScript if you want, I like TypeScript more so I’m going to be using that. And of course we’re going to use Vercel to deploy our project so pick that. After you have bootstrapped the project, open it in your favorite code editor.</p>
+<br/>
+<p>Next, start the application using</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npm run dev</span></span></code></pre>
+<p>You will see a very basic app like this <img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_3mwe2bD2OG.png" alt="bootstrapped-app"/></p>
+<br/>
+<p>You can see that that’s being rendered from the <code>index.tsx</code> file inside the <code>app/routes</code> directory. <code>index.tsx</code> is always the root route.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Index</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">style</span><span style="color:#666666">={{</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">fontFamily</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">system-ui, sans-serif</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">lineHeight</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">1.4</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}}&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Welcome to Remix</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">ul</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">li</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">a</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#BD976A">target</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">_blank</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#BD976A">href</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">https://remix.run/tutorials/blog</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#BD976A">rel</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">noreferrer</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            15m Quickstart Blog Tutorial</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">a</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">li</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">li</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">a</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#BD976A">target</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">_blank</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#BD976A">href</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">https://remix.run/tutorials/jokes</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#BD976A">rel</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">noreferrer</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            Deep Dive Jokes App Tutorial</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">a</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">li</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">li</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">a</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">target</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">_blank</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">href</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">https://remix.run/docs</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">rel</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">noreferrer</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            Remix Docs</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">a</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">li</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">ul</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>We don’t really need all of this so go ahead and remove all of the link. Let’s add a <code>h1</code> tag to render a nice heading.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Index</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">style</span><span style="color:#666666">={{</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">fontFamily</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">system-ui, sans-serif</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">lineHeight</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">1.4</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}}&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">nexxel&#39;s blog</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>Let’s understand how routing works in Remix. Routing in Remix is file based, and just how you can create route modules using JavaScript, Remix also allows us to make route modules using MDX.</p>
+<p>So make a sub directory inside the <code>app/routes</code> directory called <code>blog</code>. This will be our route module for the <code>/blog</code>. Inside the blog directory make a MDX file, let’s call it <code>first-blog.mdx</code>.
+Inside it lets render a heading.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#666666;font-style:italic">#</span><span style="color:#4D9375;font-style:italic"> First Blog post</span></span></code></pre>
+<p>Now if you navigate to <code>http://localhost:3000/blog/first-blog</code>, you should see the markdown being rendered there. <img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_VoZNWNDC7F.png" alt="first-blog"/></p>
+<p>Now let’s add some attributes to our markdown. We can add attributes like this:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">---</span></span>
+<span class="line"><span style="color:#B8A965">title</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">title of the blog</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#B8A965">date</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C99076">2022-04-13</span></span>
+<span class="line"><span style="color:#B8A965">meta</span><span style="color:#666666">:</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">title</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">title of the blog</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">description</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7D">first ever blog post</span></span>
+<span class="line"><span style="color:#DBD7CAEE">---</span></span></code></pre>
+<p>Let’s try to access these attributes by rendering the title. We can do this like this:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#666666;font-style:italic">#</span><span style="color:#4D9375;font-style:italic"> {attributes.title}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">{attributes.date.toDateString()}</span></span></code></pre>
+<p>Now navigate to <code>/blog/first-blog</code> and you should see the title and date being rendered. <img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_eaPYVVzuR2.png" alt="attributes"/> Also notice how the <code>meta</code> tag that we added to out markdown gave the page a title.</p>
+<br/>
+<p>Now let’s paste an actual blog post in here. You can write your own blog. If you
+don’t have a blog prepared, for now you can just copy <a href="https://raw.githubusercontent.com/nexxeln/remix-blog/main/app/routes/blog/go-gol.mdx">this blog</a>
+to follow along.</p>
+<br/>
+<p>So you should have a whole blog being rendered like this. <img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_n8aPAVElD8.gif" alt="blog-without-styling"/></p>
+<p>As you can see, we already have a working blog in like 7 minutes of work! But obviously this looks really bad. The typography sucks and there’s no syntax highlighting for code blocks.</p>
+<br/>
+<p>Let’s add some syntax highlighting first. For this we’re going to use <a href="https://highlightjs.org/">hightlight.js</a> as it’s the most popular.</p>
+<br/>
+<p>In MDX we can add plugins to do all sorts of stuff. There are two types of plugins: remark plugins and rehype plugins. We are going to to use a rehype plugin called <code>rehype-highlight</code> which is using <code>highlight.js</code>. So open your terminal and install it.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npm i rehype-highlight highlight.js</span></span></code></pre>
+<p>Now open <code>remix.config.js</code> and add an <code>mdx</code> key with this configuration:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// remix.config.js</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#80A665">mdx</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">async</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">filename</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span><span style="color:#BD976A">rehypeHighlight</span><span style="color:#666666">]</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">await</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">Promise</span><span style="color:#666666">.</span><span style="color:#80A665">all</span><span style="color:#666666">([</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#CB7676">import</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">rehype-highlight</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">).</span><span style="color:#80A665">then</span><span style="color:#666666">((</span><span style="color:#BD976A">module</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">module</span><span style="color:#666666">.</span><span style="color:#BD976A">default</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">rehypePlugins</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span><span style="color:#BD976A">rehypeHighlight</span><span style="color:#666666">],</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">},</span></span></code></pre>
+<p>Here we are importing <code>rehype-highlight</code> and the adding it to our list of <code>rehypePlugins</code>. So now your <code>remix.config.js</code> should look something like this:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// remix.config.js</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#758575DD">/**</span></span>
+<span class="line"><span style="color:#758575DD"> * </span><span style="color:#666666">@</span><span style="color:#4D9375">type</span><span style="color:#758575DD"> </span><span style="color:#666666">{</span><span style="color:#5DA9A7">import(&#39;@remix-run/dev&#39;).AppConfig</span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#758575DD"> */</span></span>
+<span class="line"><span style="color:#B8A965">module</span><span style="color:#666666">.</span><span style="color:#B8A965">exports</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">serverBuildTarget</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">vercel</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#666666">  </span><span style="color:#758575DD">// When running locally in development mode, we use the built in remix</span></span>
+<span class="line"><span style="color:#666666">  </span><span style="color:#758575DD">// server. This does not understand the vercel lambda module format,</span></span>
+<span class="line"><span style="color:#666666">  </span><span style="color:#758575DD">// so we default back to the standard build output.</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">server</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">process</span><span style="color:#666666">.</span><span style="color:#BD976A">env</span><span style="color:#666666">.</span><span style="color:#BD976A">NODE_ENV</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">===</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">development</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">?</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">undefined</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">./server.js</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">ignoredRouteFiles</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">.*</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">],</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">appDirectory</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">app</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">assetsBuildDirectory</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">public/build</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">serverBuildPath</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">api/index.js</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">publicPath</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">/build/</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#80A665">mdx</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">async</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span><span style="color:#BD976A">filename</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span><span style="color:#BD976A">rehypeHighlight</span><span style="color:#666666">]</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">await</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">Promise</span><span style="color:#666666">.</span><span style="color:#80A665">all</span><span style="color:#666666">([</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#CB7676">import</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">rehype-highlight</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">).</span><span style="color:#80A665">then</span><span style="color:#666666">((</span><span style="color:#BD976A">module</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">module</span><span style="color:#666666">.</span><span style="color:#BD976A">default</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">]);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">rehypePlugins</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span><span style="color:#BD976A">rehypeHighlight</span><span style="color:#666666">],</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>Now we’re going to make a layout route for <code>/blog</code>. The way to do this in Remix is by create a <code>blog.tsx</code> file at the same level as <code>blog</code> directory. So create a <code>blog.tsx</code> file in the <code>app/routes</code> directory. As this is a layout route, any styling that we add here is added for all the nested routes for <code>/blog</code>.</p>
+<br/>
+<p>Let’s bring in a theme for syntax highlighting from <code>highlight.js</code>. If you look at <code>node_modules/highlight.js/styles</code>, you will see a lot of themes to choose from. I’m going to use the <code>tokyo-night-dark</code> theme, but feel free to choose whatever you like. Now we need to expose this css to all the nested routes. The way to do this in Remix is by the <code>links</code> function. You can read more about it <a href="https://remix.run/docs/en/v1/api/conventions#links">here</a>. So in <code>app/routes/blog.tsx</code>, let’s add all this code.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/blog.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">LinksFunction</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/node</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">highlight.js/styles/tokyo-night-dark.css</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">links</span><span style="color:#666666">: </span><span style="color:#5DA9A7">LinksFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">rel</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">stylesheet</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">href</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">];</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>We’re just providing it a stylesheet with the css that we imported from <code>highlight.js</code>. While we’re here, let’s also add some meta tags to this page. To add meta tags we use the meta function. Read more about it <a href="https://remix.run/docs/en/v1/api/conventions#meta">here</a>.
+This is what your file should look like now:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/blog.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">LinksFunction</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">MetaFunction</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/node</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">highlight.js/styles/tokyo-night-dark.css</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">meta</span><span style="color:#666666">: </span><span style="color:#5DA9A7">MetaFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">title</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">nexxel&#39;s blog</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">description</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">here nexxel writes about stuff</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">links</span><span style="color:#666666">: </span><span style="color:#5DA9A7">LinksFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">rel</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">stylesheet</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">href</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">];</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>Feel free to add whatever title and description you want.</p>
+<br/>
+<p>Since this is out layout route, we also need to export a default component that returns an <code>&lt;Outlet /&gt;</code>. This is a Remix thing, it requires this for nested routes. Read more about it <a href="https://remix.run/docs/en/v1/api/remix#outlet-context-">here</a>.</p>
+<p>Now your code should look something like this:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/blog.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">LinksFunction</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">MetaFunction</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/node</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Outlet</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/react</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">highlight.js/styles/tokyo-night-dark.css</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">meta</span><span style="color:#666666">: </span><span style="color:#5DA9A7">MetaFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">title</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">nexxel&#39;s blog</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">description</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">here nexxel writes about stuff</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">links</span><span style="color:#666666">: </span><span style="color:#5DA9A7">LinksFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">rel</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">stylesheet</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">href</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">];</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Blog</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Outlet</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;;</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>Now if you rerun your dev server by using <code>npm run dev</code>, you will see that our syntax highlighting works! <img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_sOaQ8ZJoYH.png" alt="syntax-highlighting"/></p>
+<br/>
+<p>Congratulations if you have made this far because we are almost done. If you look at the current state of our blog, it isn’t very readable. The typography sucks. So we’re going to use Tailwind for this, more specifically the <a href="https://tailwindcss.com/docs/typography-plugin"><code>@tailwindcss/typography</code></a> plugin which will make our blog look super nice. Let’s set up Tailwind first.</p>
+<br/>
+<p>Kill your dev server and install Tailwind and its peer dependencies, then run the init command to generate <code>tailwind.config.js</code> and <code>postcss.config.js</code>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npm install -D tailwindcss postcss autoprefixer concurrently</span></span>
+<span class="line"><span style="color:#DBD7CAEE">npx tailwindcss init -p</span></span></code></pre>
+<p>We also need <code>concurrently</code> because we will run two processes at one, one will be our dev server, and another one will compile the Tailwind classes into actual CSS.</p>
+<br/>
+<p>Now add all the file paths that will use Tailwind in <code>tailwind.config.js</code></p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// tailwind.config.js</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B8A965">module</span><span style="color:#666666">.</span><span style="color:#B8A965">exports</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">content</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">./app/**/*.{js,ts,jsx,tsx}</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">],</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">theme</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">extend</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">plugins</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[],</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>Now go to <code>package.json</code> and update the scripts.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// package.json</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965AA">&quot;</span><span style="color:#B8A965">scripts</span><span style="color:#B8A965AA">&quot;</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965AA">&quot;</span><span style="color:#B8A965">build</span><span style="color:#B8A965AA">&quot;</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">npm run build:css &amp;&amp; remix build</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965AA">&quot;</span><span style="color:#B8A965">build:css</span><span style="color:#B8A965AA">&quot;</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">tailwindcss -m -i ./styles/app.css -o app/styles/app.css</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965AA">&quot;</span><span style="color:#B8A965">dev</span><span style="color:#B8A965AA">&quot;</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">concurrently </span><span style="color:#C99076">\&quot;</span><span style="color:#C98A7D">npm run dev:css</span><span style="color:#C99076">\&quot;</span><span style="color:#C98A7D"> </span><span style="color:#C99076">\&quot;</span><span style="color:#C98A7D">remix dev</span><span style="color:#C99076">\&quot;</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965AA">&quot;</span><span style="color:#B8A965">dev:css</span><span style="color:#B8A965AA">&quot;</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">tailwindcss -w -i ./styles/app.css -o app/styles/app.css</span><span style="color:#C98A7DAA">&quot;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">}</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>Now create a <code>./styles/app.css</code> and add the Tailwind directives.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">// styles/app</span><span style="color:#666666">.</span><span style="color:#BD976A">css</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE">/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#666666">@</span><span style="color:#4D9375">tailwind</span><span style="color:#DBD7CAEE"> base</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#666666">@</span><span style="color:#4D9375">tailwind</span><span style="color:#DBD7CAEE"> components</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#666666">@</span><span style="color:#4D9375">tailwind</span><span style="color:#DBD7CAEE"> utilities</span><span style="color:#666666">;</span></span></code></pre>
+<p>This will show you 3 problems in VSCode, just ignore them.</p>
+<br/>
+<p>Now go to <code>app/root.tsx</code> and import the compiled css. This is what your code should look like:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/root.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">MetaFunction</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/node</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">./styles/app.css</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">Links</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">LiveReload</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">Meta</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">Outlet</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">Scripts</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#BD976A">ScrollRestoration</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/react</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">meta</span><span style="color:#666666">: </span><span style="color:#5DA9A7">MetaFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">({</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">charset</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">utf-8</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">title</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">New Remix App</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">viewport</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">width=device-width,initial-scale=1</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#666666">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">links</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[{</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">rel</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">stylesheet</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">href</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}];</span></span>
+<span class="line"><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">App</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">html</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">lang</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">en</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">head</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Meta</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Links</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">head</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">body</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Outlet</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">ScrollRestoration</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Scripts</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">LiveReload</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">body</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">html</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>This is all documented <a href="https://tailwindcss.com/docs/guides/remix">here</a>.</p>
+<br/>
+<p>Now that we have Tailwind set up, let’s also install the typography plugin.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#DBD7CAEE">npm i -D @tailwindcss/typography</span></span></code></pre>
+<p>Open <code>tailwind.config.js</code> and add the typography plugin in the <code>plugins</code> list.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// tailwind.config.js</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B8A965">module</span><span style="color:#666666">.</span><span style="color:#B8A965">exports</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">content</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">./app/**/*.{js,ts,jsx,tsx}</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">],</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#B8A965">theme</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">extend</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#80A665">plugins</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span><span style="color:#80A665">require</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@tailwindcss/typography</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">)],</span></span>
+<span class="line"><span style="color:#DBD7CAEE">}</span><span style="color:#666666">;</span></span></code></pre>
+<p>Now when you run your dev server using <code>npm run dev</code>, you’ll see that it will first give an error because our compiled css file doesn’t exist yet, but then it will generate that eventually and it will work.</p>
+<br/>
+<p>Now we’re gonna see just how powerful this typography plugin is. Open <code>app/routes/blog.tsx</code> which is the blog layout route. Any styling that we add here is added for all the nested routes. So let’s wrap the <code>&lt;Outlet /&gt;</code> component with a <code>&lt;div&gt;</code> and add the <code>prose</code> class from the typography plugin. This is what your code should look like:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/blog.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">LinksFunction</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">MetaFunction</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/node</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Outlet</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/react</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">highlight.js/styles/github-dark-dimmed.css</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">meta</span><span style="color:#666666">: </span><span style="color:#5DA9A7">MetaFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">title</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">nexxel&#39;s blog</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">description</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">here nexxel writes about stuff</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">links</span><span style="color:#666666">: </span><span style="color:#5DA9A7">LinksFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">rel</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">stylesheet</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#B8A965">href</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">styles</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">},</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">];</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Blog</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">flex justify-center</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">prose lg:prose-xl py-10 px-6</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Outlet</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">/&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>We are also centering it using flexbox. Just one <code>prose</code> class and it makes it so much better! <img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_umo6KZ1WSu.gif" alt="typography"/></p>
+<br/>
+<p>If you make another MDX file inside the <code>app/routes/blog</code> directory, you will see that the styles work there too. All because of the blog layout route.</p>
+<br/>
+<p>We’re pretty much done here. Now all that is left is to make a <code>/blog</code> page to display all our blog posts. I’m going to keep this very simple and minimal but feel free to explore with the styling and come up with cool designs!</p>
+<br/>
+<p>So let’s make an <code>index.tsx</code> file inside <code>app/routes/blog</code> which will act as the <code>/blog</code> page.</p>
+<br/>
+<p>First let’s import all our blog posts in here. I changed the name of the MDX file to make more sense.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/blog/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">goGol</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">go-gol.mdx</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">nexdle</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">nexdle.mdx</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">genLicense</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">gen-license.mdx</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span></code></pre>
+<p>Now that we have all the MDX modules imported, let’s write a function to pull out the <code>slug</code> which is the filename without the <code>.mdx</code>, and then we can just provide the rest of the attributes that we’re getting from the <code>meta</code> attribute that we had added in out MDX files. This function is straight from the docs. Read more <a href="https://remix.run/docs/en/v1/guides/mdx#modules">here</a>.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/blog/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">postFromModule</span><span style="color:#666666">(</span><span style="color:#BD976A">module</span><span style="color:#666666">: </span><span style="color:#5DA9A7">any</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">module</span><span style="color:#666666">.</span><span style="color:#B8A965">filename</span><span style="color:#666666">.</span><span style="color:#80A665">replace</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">/</span><span style="color:#E6CC77">\.</span><span style="color:#C4704F">mdx</span><span style="color:#CB7676">?</span><span style="color:#4D9375">$</span><span style="color:#C98A7DAA">/</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;&quot;</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">...</span><span style="color:#B8A965">module</span><span style="color:#666666">.</span><span style="color:#BD976A">attributes</span><span style="color:#666666">.</span><span style="color:#BD976A">meta</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>Now let’s add a loader function, in Remix the loader function is used to load in data server-side. Read more <a href="https://remix.run/docs/en/v1/api/conventions#loader">here</a>. We will just load all our blogs in here.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/blog/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">loader</span><span style="color:#666666">: </span><span style="color:#5DA9A7">LoaderFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#80A665">postFromModule</span><span style="color:#666666">(</span><span style="color:#BD976A">genLicense</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#80A665">postFromModule</span><span style="color:#666666">(</span><span style="color:#BD976A">nexdle</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#80A665">postFromModule</span><span style="color:#666666">(</span><span style="color:#BD976A">goGol</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">];</span></span>
+<span class="line"><span style="color:#666666">};</span></span></code></pre>
+<p>Whatever we have loaded here is accessible in client-side by using a hook called <code>useLoaderData</code> which is provided by Remix. Read more about it <a href="https://remix.run/docs/en/v1/api/remix#useloaderdata">here</a>. Now we just map over our posts and render them in an unordered list. I’m also adding some very basic styling.</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/blog/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">BlogIndex</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">posts</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">useLoaderData</span><span style="color:#666666">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">px-6</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h2</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Posts</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h2</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">ul</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">{</span><span style="color:#BD976A">posts</span><span style="color:#666666">.</span><span style="color:#80A665">map</span><span style="color:#666666">((</span><span style="color:#BD976A">post</span><span style="color:#666666">: </span><span style="color:#5DA9A7">any</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">li</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">key</span><span style="color:#666666">={</span><span style="color:#BD976A">post</span><span style="color:#666666">.</span><span style="color:#BD976A">slug</span><span style="color:#666666">}&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Link</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">to</span><span style="color:#666666">={</span><span style="color:#C98A7DAA">`</span><span style="color:#C98A7D">/blog/</span><span style="color:#666666">${</span><span style="color:#C98A7D">post</span><span style="color:#666666">.</span><span style="color:#C98A7D">slug</span><span style="color:#666666">}</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">}&gt;{</span><span style="color:#BD976A">post</span><span style="color:#666666">.</span><span style="color:#BD976A">title</span><span style="color:#666666">}&lt;/</span><span style="color:#B8A965">Link</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">{</span><span style="color:#BD976A">post</span><span style="color:#666666">.</span><span style="color:#BD976A">description</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">&amp;&amp;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">              </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">p</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">m-0 lg:m-0</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;{</span><span style="color:#BD976A">post</span><span style="color:#666666">.</span><span style="color:#BD976A">description</span><span style="color:#666666">}&lt;/</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">)}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">li</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">))}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">ul</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>So after adding all this, your code should look like this:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/blog/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">LoaderFunction</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/node</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Link</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">useLoaderData</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/react</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">goGol</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">go-gol.mdx</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">nexdle</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">nexdle.mdx</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">*</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">as</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">genLicense</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">gen-license.mdx</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">postFromModule</span><span style="color:#666666">(</span><span style="color:#BD976A">module</span><span style="color:#666666">: </span><span style="color:#5DA9A7">any</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">slug</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#B8A965">module</span><span style="color:#666666">.</span><span style="color:#B8A965">filename</span><span style="color:#666666">.</span><span style="color:#80A665">replace</span><span style="color:#666666">(</span><span style="color:#C98A7DAA">/</span><span style="color:#E6CC77">\.</span><span style="color:#C4704F">mdx</span><span style="color:#CB7676">?</span><span style="color:#4D9375">$</span><span style="color:#C98A7DAA">/</span><span style="color:#666666">,</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;&quot;</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">...</span><span style="color:#B8A965">module</span><span style="color:#666666">.</span><span style="color:#BD976A">attributes</span><span style="color:#666666">.</span><span style="color:#BD976A">meta</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">loader</span><span style="color:#666666">: </span><span style="color:#5DA9A7">LoaderFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">[</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#80A665">postFromModule</span><span style="color:#666666">(</span><span style="color:#BD976A">genLicense</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#80A665">postFromModule</span><span style="color:#666666">(</span><span style="color:#BD976A">nexdle</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#80A665">postFromModule</span><span style="color:#666666">(</span><span style="color:#BD976A">goGol</span><span style="color:#666666">),</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">];</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">BlogIndex</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">posts</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">useLoaderData</span><span style="color:#666666">();</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">px-6</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h2</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Posts</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h2</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">ul</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">{</span><span style="color:#BD976A">posts</span><span style="color:#666666">.</span><span style="color:#80A665">map</span><span style="color:#666666">((</span><span style="color:#BD976A">post</span><span style="color:#666666">: </span><span style="color:#5DA9A7">any</span><span style="color:#666666">)</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">li</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">key</span><span style="color:#666666">={</span><span style="color:#BD976A">post</span><span style="color:#666666">.</span><span style="color:#BD976A">slug</span><span style="color:#666666">}&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Link</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">to</span><span style="color:#666666">={</span><span style="color:#C98A7DAA">`</span><span style="color:#C98A7D">/blog/</span><span style="color:#666666">${</span><span style="color:#C98A7D">post</span><span style="color:#666666">.</span><span style="color:#C98A7D">slug</span><span style="color:#666666">}</span><span style="color:#C98A7DAA">`</span><span style="color:#666666">}&gt;{</span><span style="color:#BD976A">post</span><span style="color:#666666">.</span><span style="color:#BD976A">title</span><span style="color:#666666">}&lt;/</span><span style="color:#B8A965">Link</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">{</span><span style="color:#BD976A">post</span><span style="color:#666666">.</span><span style="color:#BD976A">description</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">&amp;&amp;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">              </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">p</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">m-0 lg:m-0</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;{</span><span style="color:#BD976A">post</span><span style="color:#666666">.</span><span style="color:#BD976A">description</span><span style="color:#666666">}&lt;/</span><span style="color:#4D9375">p</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">)}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">li</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">))}</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">ul</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p>Now if you go to <code>/blog</code> you will see, that all our posts are shown there. <img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_EsooUIZfZD.png" alt="/blog"/></p>
+<br/>
+<p>Now let’s make a nice landing page for our blog. I’m going to keep this very minimal but this is where you can show off your creativity and personality!</p>
+<br/>
+<p>Go to <code>app/routes/index.tsx</code> and add your code there. This is what mine looks like:</p>
+<pre class="astro-code" style="background-color:#121212;overflow-x:auto"><code><span class="line"><span style="color:#758575DD">// app/routes/index.tsx</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">type</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">MetaFunction</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/node</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"><span style="color:#4D9375">import</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">Link</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">}</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">from</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">@remix-run/react</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">const</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">meta</span><span style="color:#666666">: </span><span style="color:#5DA9A7">MetaFunction</span><span style="color:#666666"> =</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">=&gt;</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">title</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">nexxel&#39;s blog</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#B8A965">description</span><span style="color:#666666">:</span><span style="color:#DBD7CAEE"> </span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">here nexxel writes about stuff</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">,</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">};</span></span>
+<span class="line"><span style="color:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#4D9375">export</span><span style="color:#DBD7CAEE"> </span><span style="color:#4D9375">default</span><span style="color:#DBD7CAEE"> </span><span style="color:#CB7676">function</span><span style="color:#DBD7CAEE"> </span><span style="color:#80A665">Index</span><span style="color:#666666">()</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">{</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#4D9375">return</span><span style="color:#DBD7CAEE"> </span><span style="color:#666666">(</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">flex justify-center items-center text-center text-4xl px-6 h-screen</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">h1</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">font-bold</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span><span style="color:#DBD7CAEE">Welcome to my bare-bones blog</span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">h1</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;</span><span style="color:#B8A965">Link</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">to</span><span style="color:#666666">={</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">/blog</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">}&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">button</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">pt-6</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;</span><span style="color:#4D9375">span</span><span style="color:#DBD7CAEE"> </span><span style="color:#BD976A">className</span><span style="color:#666666">=</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#C98A7D">font-normal text-xl bg-black text-white px-4 py-2 hover:opacity-90 transition-opacity duration-300 rounded-sm shadow-2xl</span><span style="color:#C98A7DAA">&quot;</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">              Go to the blog</span></span>
+<span class="line"><span style="color:#DBD7CAEE">            </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">span</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">          </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">button</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">        </span><span style="color:#666666">&lt;/</span><span style="color:#B8A965">Link</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">      </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">    </span><span style="color:#666666">&lt;/</span><span style="color:#4D9375">div</span><span style="color:#666666">&gt;</span></span>
+<span class="line"><span style="color:#DBD7CAEE">  </span><span style="color:#666666">);</span></span>
+<span class="line"><span style="color:#666666">}</span></span></code></pre>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_Tj44rGk8Vx.png" alt="landing"/></p>
+<p>Congratulations!! You have finished building a blog app using Remix, TailwindCSS and MDX. That is actually so cool.</p>
+<br/>
+<p>Now let’s deploy this thing using Vercel 🚀.</p>
+<br/>
+<h3 id="deploying-to-vercel">Deploying To Vercel</h3>
+<br/>
+<p>First, delete the <code>app/styles</code> directory (that was our compiled css that was generated) and then upload this code to <a href="https://github.com">GitHub</a>. I’m assuming you know how to do that, if you don’t feel free to ask in the comment section or just look it up online.</p>
+<br/>
+<p>Then go to <a href="https://vercel.com">Vercel</a> and login in with GitHub. Click on new project.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_fusvFkqV31.png" alt="vercel"/></p>
+<p>Import the repository that you uploaded the code to.</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_wmScEKFQZ4.png" alt="vercel-import"/></p>
+<p>Choose Remix as your framework preset and then click on deploy!</p>
+<p><img src="https://us-east-1.tixte.net/uploads/nexxel.needs.rest/brave_uyJ35KjqN3.png" alt="deploy"/></p>
+<p>And we’re done! Congratulations on making a very cool blog for yourself and deploying it to the internet! Now whenever you add new blogs you just have push those changes to your repository on GitHub and Vercel will deploy that for you. It’s awesome, I love Vercel.</p>
+<br/>
+<p>That’s it for today, damn this was a long one. If you made it this far, please do comment and show off your new blog. I would really appreciate it!</p>
+<br/>
+<p>Code for this tutorial: <a href="https://github.com/nexxeln/remix-blog">nexxeln/remix-blog</a></p>
+<br/>
+<p>Thank you for reading!</p>
+      </article>
+    </main>
+    <hr class="border-t-2 border-t-neutral-800 mt-24">
+
+<footer class="p-4 text-neutral-400 text-center">
+  <p class="text-neutral-400">
+    This website doesn't track you. Have a nice day.
+  </p>
+  <div class="flex gap-6 items-center justify-center text-sm pt-2">
+    <a href="/rss.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+      </svg>
+      <span>RSS</span>
+    </a>
+    <a href="/sitemap-index.xml" class="flex flex-col gap-y-0.5 items-center text-neutral-400 hover:no-underline hover:text-neutral-200 transition-colors duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"></path>
+      </svg>
+      <span>Sitemap</span>
+    </a>
+  </div>
+</footer>
+  </body></html>

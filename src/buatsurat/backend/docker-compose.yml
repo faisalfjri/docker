@@ -5,6 +5,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
+    image: faisalfjri/buatsurat-backend
     container_name: buatsurat-backend
     restart: unless-stopped
     working_dir: /var/www/html/buatsurat-backend
